@@ -518,7 +518,7 @@ p,li{text-wrap:pretty}
 .cmp-group .m{color:#e0e0e0;font-weight:600}
 .cmp+.compare-note{margin-top:40px}
 @media (min-width:960px){
-  .cmp{grid-template-columns:repeat(3,1fr);grid-template-rows:auto repeat(5,auto);row-gap:34px}
+  .cmp{grid-template-columns:repeat(3,1fr);grid-template-rows:auto repeat(3,auto);row-gap:34px}
   .cmp-col,.cmp-col+.cmp-col{grid-row:1/-1;padding:56px 32px;border-top:0}
   .cmp-col.is-main{border-radius:0}
   .cmp-col:nth-child(3){border-left:1px solid var(--line)}
@@ -744,6 +744,35 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
   .cmp-col:hover .cmp-group:nth-child(6) li,.cmp-col:hover .cmp-group:nth-child(6) .cmp-ic{transition-delay:.2s}
 }
 @media (prefers-reduced-motion:reduce){.cmp-col:hover,.cmp-col:hover .cmp-group li{translate:none}.cmp-col:hover .cmp-ic{scale:none}.gf-brand:hover .gf-gem{scale:none;rotate:none}}
+
+/* ===== DIFERENCIAL: hover no bloco inteiro ===== */
+.gf-card{transition:background-color .4s ease,box-shadow .4s ease}
+.gf-card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(120% 90% at 20% 0%,rgba(255,255,255,.09),transparent 60%);transition:opacity .4s ease}
+.gf-card h3,.gf-card p{transition:translate .4s ease,color .4s ease}
+@media (hover:hover) and (pointer:fine){
+  .gf-card:hover{background-color:#0b0b0b;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+  .gf-card:hover::after{opacity:1}
+  .gf-card:hover h3{translate:0 -3px;color:#fff}
+  .gf-card:hover p{translate:0 -3px;color:rgba(245,245,245,.9)}
+}
+@media (prefers-reduced-motion:reduce){.gf-card:hover h3,.gf-card:hover p{translate:none}}
+
+/* ===== VERSAO ENXUTA ===== */
+.ppf-mini{margin-top:72px}
+.ppf-mini .spec{margin:24px 0 8px}
+.sec-cta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:40px;text-align:center}
+.ppf-mini .sec-cta{align-items:flex-start;text-align:left}
+.steps-mini{list-style:none;display:grid;gap:10px;margin:0}
+.steps-mini li{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid var(--line);background:var(--bg-2);font-size:14px;line-height:1.4;color:var(--text);transition:border-color .35s ease,translate .35s ease}
+.steps-mini small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.steps-mini .si{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:10px;border:1px solid var(--line-2);background:linear-gradient(180deg,#1b1b1b,#0d0d0d);color:#f5f5f5}
+.steps-mini .si svg{width:20px;height:20px;stroke-width:1.6}
+.steps-mini li.is-main .si{background:linear-gradient(0deg,#d3d3d3,#f5f5f5);color:#050505;border-color:#a8a8a8}
+@media (min-width:900px){.steps-mini{grid-template-columns:repeat(5,1fr)}.steps-mini li{flex-direction:column;align-items:flex-start;padding:20px 18px}}
+@media (hover:hover) and (pointer:fine){.steps-mini li:hover{border-color:rgba(255,255,255,.4);translate:0 -3px}}
+@media (min-width:1024px){
+  .foot-grid{grid-template-columns:1.3fr 1fr 1.2fr;grid-template-areas:"brand addr map" "brand hours map"}
+}
 </style>
 </head>
 <body>
@@ -812,23 +841,17 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
       <h3>Repintura não recupera o que foi perdido.</h3>
       <p>Ao repintar, o veículo deixa de ter a pintura original de fábrica. Para colecionadores, avaliadores e compradores atentos, isso reduz o valor de revenda. A proteção preventiva é o caminho que preserva a originalidade e devolve o que o proprietário mais valoriza: usar o carro, viajar e estacionar sem receio.</p>
     </div>
-    <div class="sub-block" id="ppf">
+    <div class="sub-block ppf-mini" id="ppf">
       <div class="split">
         <div class="rv">
-          <div class="eyebrow">O que é PPF</div>
-          <h2>Uma camada técnica que absorve o dano antes da <span class="hl"><span class="hl-t">pintura.</span></span></h2>
-          <p class="lead">PPF (Paint Protection Film) é um filme transparente aplicado sobre a pintura. Protege a superfície sem alterar a aparência original.</p>
+          <div class="eyebrow">A solução</div>
+          <h2>PPF: uma camada invisível que absorve o dano antes da <span class="hl"><span class="hl-t">pintura.</span></span></h2>
           <ul class="spec">
-            <li><b>Filme de TPU</b><span>Poliuretano termoplástico, flexível e resistente a impactos e abrasão.</span></li>
+            <li><b>Filme de TPU transparente</b><span>Resistente a impactos e abrasão, sem alterar a aparência original.</span></li>
             <li><b>Autorregeneração</b><span>Riscos superficiais desaparecem com o calor do sol ou da água aquecida.</span></li>
-            <li><b>Hidrofobicidade</b><span>A superfície repele água e sujeira, e facilita a limpeza.</span></li>
-            <li><b>Proteção UV</b><span>Reduz a ação dos raios UV e preserva o brilho da pintura.</span></li>
+            <li><b>Brilho ou fosco</b><span>Realça a pintura de fábrica ou transforma o visual, sem alterar a pintura por baixo.</span></li>
           </ul>
-          <div class="finish">
-            <div><b>Brilho</b><span>Mantém e realça a pintura original de fábrica.</span></div>
-            <div><b>Fosco (satin)</b><span>Transforma o visual do carro sem alterar a pintura por baixo.</span></div>
-          </div>
-          <div class="ppf-cta">
+          <div class="sec-cta">
             <a href="#" class="btn btn-primary" data-wa>Agendar avaliação</a>
             <p class="hero-note">Atendimento consultivo pelo WhatsApp.</p>
           </div>
@@ -924,7 +947,7 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
 <section id="diff">
   <div class="container">
     <div class="sec-head center gf-reveal" style="--d:.1s">
-      <div class="eyebrow">Diferencial Speed Wrap Diamond</div>
+      <div class="eyebrow">Como trabalhamos</div>
       <h2>O resultado do PPF depende de <span class="hl"><span class="hl-t">quem aplica</span></span> e de onde.</h2>
     </div>
     <div class="gf-grid gf-reveal" style="--d:.2s">
@@ -944,7 +967,7 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
         <div class="gf-pattern" aria-hidden="true"><div><svg class="gf-svg" width="100%" height="100%"><rect width="100%" height="100%" stroke-width="0" fill="url(#gfp0)"/><svg x="-12" y="4" style="overflow:visible"><rect stroke-width="0" width="21" height="21" x="200" y="40"/><rect stroke-width="0" width="21" height="21" x="160" y="40"/><rect stroke-width="0" width="21" height="21" x="180" y="80"/><rect stroke-width="0" width="21" height="21" x="160" y="120"/><rect stroke-width="0" width="21" height="21" x="140" y="120"/></svg></svg></div></div>
         <svg class="gf-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg>
         <h3>Corte e ajuste</h3>
-        
+        <p>Filme recortado sob medida para cada modelo, com encaixe preciso em cada painel.</p>
       </div>
       <div class="gf-card">
         <div class="gf-pattern" aria-hidden="true"><div><svg class="gf-svg" width="100%" height="100%"><rect width="100%" height="100%" stroke-width="0" fill="url(#gfp0)"/><svg x="-12" y="4" style="overflow:visible"><rect stroke-width="0" width="21" height="21" x="200" y="100"/><rect stroke-width="0" width="21" height="21" x="180" y="40"/><rect stroke-width="0" width="21" height="21" x="200" y="80"/><rect stroke-width="0" width="21" height="21" x="200" y="80"/><rect stroke-width="0" width="21" height="21" x="140" y="120"/></svg></svg></div></div>
@@ -964,101 +987,14 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
         <img class="gf-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjM2MSAxMjQgMTYzNiAxODU1IiBmaWxsPSIjZmZmZmZmIj48cGF0aCBkPSJNIDk2MS40IDE5NTIuNCBDIDk1OC42IDE5NTcuMCA5NTQuOCAxOTYwLjcgOTQ5LjggMTk2My4zIEMgOTQ0LjkgMTk2Ni4wIDkzOS4wIDE5NjcuMyA5MzIuMyAxOTY3LjMgTCA5MDkuOCAxOTY3LjMgTCA5MDkuOCAxOTA1LjIgTCA5MzIuMyAxOTA1LjIgQyA5MzkuMCAxOTA1LjIgOTQ0LjkgMTkwNi41IDk0OS44IDE5MDkuMiBDIDk1NC44IDE5MTEuOCA5NTguNiAxOTE1LjUgOTYxLjQgMTkyMC4xIEMgOTY0LjEgMTkyNC43IDk2NS41IDE5MzAuMSA5NjUuNSAxOTM2LjMgQyA5NjUuNSAxOTQyLjMgOTY0LjEgMTk0Ny43IDk2MS40IDE5NTIuNCBNIDk1NC4xIDE5MDMuMSBDIDk0Ny45IDE4OTkuOSA5NDAuOCAxODk4LjMgOTMyLjcgMTg5OC4zIEwgOTAxLjggMTg5OC4zIEwgOTAxLjggMTk3NC4yIEwgOTMyLjcgMTk3NC4yIEMgOTQwLjggMTk3NC4yIDk0Ny45IDE5NzIuNiA5NTQuMSAxOTY5LjQgQyA5NjAuMiAxOTY2LjIgOTY0LjkgMTk2MS43IDk2OC4zIDE5NTYuMCBDIDk3MS43IDE5NTAuMyA5NzMuNCAxOTQzLjcgOTczLjQgMTkzNi4zIEMgOTczLjQgMTkyOC44IDk3MS43IDE5MjIuMiA5NjguMyAxOTE2LjUgQyA5NjQuOSAxOTEwLjggOTYwLjIgMTkwNi4zIDk1NC4xIDE5MDMuMSBNIDk5MS41IDE5NzQuMiBMIDk5OS41IDE5NzQuMiBMIDk5OS41IDE4OTguMyBMIDk5MS41IDE4OTguMyBaIE0gOTkxLjUgMTk3NC4yIE0gMTAzMi40IDE5NDcuNCBMIDEwNTAuNyAxOTA2LjYgTCAxMDY5LjAgMTk0Ny40IFogTSAxMDQ2LjggMTg5OC4zIEwgMTAxMi4xIDE5NzQuMiBMIDEwMjAuNCAxOTc0LjIgTCAxMDI5LjUgMTk1NCBMIDEwNzEuOSAxOTU0IEwgMTA4MS4wIDE5NzQuMiBMIDEwODkuNSAxOTc0LjIgTCAxMDU0LjcgMTg5OC4zIFogTSAxMDQ2LjggMTg5OC4zIE0gMTE0MS43IDE5NTQuNiBMIDExMDguNyAxODk4LjMgTCAxMTAyLjEgMTg5OC4zIEwgMTEwMi4xIDE5NzQuMiBMIDExMDkuOCAxOTc0LjIgTCAxMTA5LjggMTkxMy44IEwgMTEzOS42IDE5NjQuNiBMIDExNDMuNCAxOTY0LjYgTCAxMTczLjMgMTkxMy41IEwgMTE3My4zIDE5NzQuMiBMIDExODEuMCAxOTc0LjIgTCAxMTgxLjAgMTg5OC4zIEwgMTE3NC4zIDE4OTguMyBaIE0gMTE0MS43IDE5NTQuNiBNIDEyNjguMyAxOTQ4LjggQyAxMjY2LjggMTk1Mi42IDEyNjQuNSAxOTU1LjkgMTI2MS43IDE5NTguOCBDIDEyNTguOCAxOTYxLjYgMTI1NS40IDE5NjMuOCAxMjUxLjYgMTk2NS40IEMgMTI0Ny43IDE5NjcuMCAxMjQzLjUgMTk2Ny43IDEyMzguOSAxOTY3LjcgQyAxMjM0LjQgMTk2Ny43IDEyMzAuMSAxOTY3LjAgMTIyNi4yIDE5NjUuNCBDIDEyMjIuMyAxOTYzLjggMTIxOC45IDE5NjEuNiAxMjE2LjEgMTk1OC44IEMgMTIxMy4yIDE5NTUuOSAxMjExLjAgMTk1Mi42IDEyMDkuMyAxOTQ4LjcgQyAxMjA3LjcgMTk0NC45IDEyMDYuOSAxOTQwLjcgMTIwNi45IDE5MzYuMyBDIDEyMDYuOSAxOTMxLjcgMTIwNy43IDE5MjcuNSAxMjA5LjMgMTkyMy43IEMgMTIxMS4wIDE5MTkuOSAxMjEzLjIgMTkxNi42IDEyMTYuMSAxOTEzLjcgQyAxMjE4LjkgMTkxMC45IDEyMjIuMyAxOTA4LjcgMTIyNi4yIDE5MDcuMSBDIDEyMzAuMSAxOTA1LjYgMTIzNC40IDE5MDQuOCAxMjM4LjkgMTkwNC44IEMgMTI0My41IDE5MDQuOCAxMjQ3LjcgMTkwNS42IDEyNTEuNiAxOTA3LjEgQyAxMjU1LjQgMTkwOC43IDEyNTguOCAxOTEwLjkgMTI2MS43IDE5MTMuNyBDIDEyNjQuNSAxOTE2LjYgMTI2Ni44IDE5MTkuOSAxMjY4LjMgMTkyMy43IEMgMTI2OS45IDE5MjcuNSAxMjcwLjcgMTkzMS43IDEyNzAuNyAxOTM2LjMgQyAxMjcwLjcgMTk0MC44IDEyNjkuOSAxOTQ1LjAgMTI2OC4zIDE5NDguOCBNIDEyNjcuNCAxOTA4LjYgQyAxMjYzLjggMTkwNS4xIDEyNTkuNiAxOTAyLjQgMTI1NC44IDE5MDAuNSBDIDEyNDkuOSAxODk4LjYgMTI0NC42IDE4OTcuNiAxMjM4LjkgMTg5Ny42IEMgMTIzMy4xIDE4OTcuNiAxMjI3LjggMTg5OC42IDEyMjMuMCAxOTAwLjUgQyAxMjE4LjEgMTkwMi40IDEyMTMuOSAxOTA1LjEgMTIxMC4zIDE5MDguNiBDIDEyMDYuNyAxOTEyLjEgMTIwNC4wIDE5MTYuMiAxMjAyLjAgMTkyMC45IEMgMTIwMC4wIDE5MjUuNiAxMTk5LjAgMTkzMC43IDExOTkuMCAxOTM2LjMgQyAxMTk5LjAgMTk0MS44IDEyMDAuMCAxOTQ3IDEyMDIuMCAxOTUxLjYgQyAxMjA0LjAgMTk1Ni4zIDEyMDYuNyAxOTYwLjQgMTIxMC4zIDE5NjMuOSBDIDEyMTMuOSAxOTY3LjQgMTIxOC4xIDE5NzAuMSAxMjIzLjAgMTk3Mi4wIEMgMTIyNy45IDE5NzMuOSAxMjMzLjIgMTk3NC45IDEyMzguOSAxOTc0LjkgQyAxMjQ0LjYgMTk3NC45IDEyNDkuOSAxOTczLjkgMTI1NC44IDE5NzIuMCBDIDEyNTkuNiAxOTcwLjEgMTI2My44IDE5NjcuNCAxMjY3LjQgMTk2My45IEMgMTI3MS4wIDE5NjAuNSAxMjczLjggMTk1Ni40IDEyNzUuOCAxOTUxLjcgQyAxMjc3LjggMTk0Ny4wIDEyNzguOCAxOTQxLjggMTI3OC44IDE5MzYuMyBDIDEyNzguOCAxOTMwLjcgMTI3Ny44IDE5MjUuNSAxMjc1LjggMTkyMC44IEMgMTI3My44IDE5MTYuMSAxMjcxLjAgMTkxMi4xIDEyNjcuNCAxOTA4LjYgTSAxMzUyLjQgMTk1OS45IEwgMTMwMy40IDE4OTguMyBMIDEyOTYuOCAxODk4LjMgTCAxMjk2LjggMTk3NC4yIEwgMTMwNC44IDE5NzQuMiBMIDEzMDQuOCAxOTEyLjYgTCAxMzUzLjcgMTk3NC4yIEwgMTM2MC4zIDE5NzQuMiBMIDEzNjAuMyAxODk4LjMgTCAxMzUyLjQgMTg5OC4zIFogTSAxMzUyLjQgMTk1OS45IE0gMTQ0NC42IDE5NTIuNCBDIDE0NDEuOSAxOTU3LjAgMTQzOC4wIDE5NjAuNyAxNDMzLjEgMTk2My4zIEMgMTQyOC4xIDE5NjYuMCAxNDIyLjMgMTk2Ny4zIDE0MTUuNSAxOTY3LjMgTCAxMzkzLjEgMTk2Ny4zIEwgMTM5My4xIDE5MDUuMiBMIDE0MTUuNSAxOTA1LjIgQyAxNDIyLjMgMTkwNS4yIDE0MjguMSAxOTA2LjUgMTQzMy4xIDE5MDkuMiBDIDE0MzguMCAxOTExLjggMTQ0MS45IDE5MTUuNSAxNDQ0LjYgMTkyMC4xIEMgMTQ0Ny40IDE5MjQuNyAxNDQ4LjcgMTkzMC4xIDE0NDguNyAxOTM2LjMgQyAxNDQ4LjcgMTk0Mi4zIDE0NDcuNCAxOTQ3LjcgMTQ0NC42IDE5NTIuNCBNIDE0NTEuNiAxOTE2LjUgQyAxNDQ4LjIgMTkxMC44IDE0NDMuNCAxOTA2LjMgMTQzNy4zIDE5MDMuMSBDIDE0MzEuMiAxODk5LjkgMTQyNC4xIDE4OTguMyAxNDE2LjAgMTg5OC4zIEwgMTM4NS4wIDE4OTguMyBMIDEzODUuMCAxOTc0LjIgTCAxNDE2LjAgMTk3NC4yIEMgMTQyNC4xIDE5NzQuMiAxNDMxLjIgMTk3Mi42IDE0MzcuMyAxOTY5LjQgQyAxNDQzLjQgMTk2Ni4yIDE0NDguMiAxOTYxLjcgMTQ1MS42IDE5NTYuMCBDIDE0NTUuMCAxOTUwLjMgMTQ1Ni43IDE5NDMuNyAxNDU2LjcgMTkzNi4zIEMgMTQ1Ni43IDE5MjguOCAxNDU1LjAgMTkyMi4yIDE0NTEuNiAxOTE2LjUgTSA1OTUuNCAxMzgzLjQgTCAzOTIuNSAxMzgzLjQgTCAzNjUuMCAxNDE4LjYgTCA1OTIuMyAxNDE4LjYgQyA2NjMuNSAxNDE4LjYgNjk0LjggMTM5Mi4zIDY5NC44IDEzNDIuOSBDIDY5NC44IDEyOTYuMSA2NjIuMyAxMjczLjMgNTk5LjMgMTI3My4zIEwgNDk0LjkgMTI3My4zIEMgNDQ1LjggMTI3My4zIDQxOC40IDEyNjkuNCA0MTguNCAxMjM2LjUgQyA0MTguNCAxMjA5LjUgNDM4LjEgMTE5NS42IDQ3Ny41IDExOTUuNiBMIDY2Mi43IDExOTUuNiBMIDY4OS44IDExNjAuMCBMIDQ4MC42IDExNjAuMCBDIDQwOS41IDExNjAuMCAzNzcuOCAxMTg2LjcgMzc3LjggMTIzMy44IEMgMzc3LjggMTI3OS4xIDQwOC4zIDEzMDQuMiA0NzMuNyAxMzA0LjIgTCA1NzguMCAxMzA0LjIgQyA2MjYuNCAxMzA0LjIgNjU0LjYgMTMwOC40IDY1NC42IDEzNDIuNSBDIDY1NC42IDEzNjkuNSA2MzUuMyAxMzgzLjQgNTk1LjQgMTM4My40IE0gMTAwMi45IDEyNDguMSBDIDEwMDIuOSAxMjg1LjYgOTYzLjEgMTI5OS42IDkxNC4wIDEyOTkuNiBMIDcyOS4yIDEyOTkuNiBMIDcyOS4yIDE0MTguNiBMIDc3MS4wIDE0MTguNiBMIDc3MS4wIDEzMzQuMyBMIDkyOC4zIDEzMzQuMyBDIDk5OS44IDEzMzQuMyAxMDQ0LjcgMTMwMy40IDEwNDQuNyAxMjQ4LjUgQyAxMDQ0LjcgMTE5My4yIDk5OS41IDExNjAuMCA5MjguMyAxMTYwLjAgTCA3MjguNCAxMTYwLjAgTCA3MjguNCAxMTk1LjYgTCA5MTMuNiAxMTk1LjYgQyA5NjYuNiAxMTk1LjYgMTAwMi45IDEyMDcuOSAxMDAyLjkgMTI0OC4xIE0gMTM1OS44IDEzODMuNCBMIDExMjUuMSAxMzgzLjQgTCAxMTI1LjEgMTMwNC4yIEwgMTM0NS40IDEzMDQuMiBMIDEzNDUuOSAxMjczLjMgTCAxMTI1LjEgMTI3My4zIEwgMTEyNS4xIDExOTUuNiBMIDEzMzIuMCAxMTk1LjYgTCAxMzU5LjggMTE2MC4wIEwgMTA4My4zIDExNjAuMCBMIDEwODMuMyAxNDE4LjYgTCAxMzMyLjMgMTQxOC42IFogTSAxMzU5LjggMTM4My40IE0gMTY2Mi4xIDEzODMuNCBMIDE0MjcuNCAxMzgzLjQgTCAxNDI3LjQgMTMwNC4yIEwgMTY0Ny44IDEzMDQuMiBMIDE2NDguMiAxMjczLjMgTCAxNDI3LjQgMTI3My4zIEwgMTQyNy40IDExOTUuNiBMIDE4NDguOCAxMTk1LjYgQyAxOTA3LjYgMTE5NS42IDE5NTIuMSAxMjM0LjIgMTk1Mi4xIDEyODguNyBDIDE5NTIuMSAxMzQzLjYgMTkwOC4wIDEzODMuNCAxODQ4LjggMTM4My40IEwgMTcyOS44IDEzODMuNCBMIDE3MjkuOCAxMjU3LjQgTCAxNjg4LjAgMTI1Ny40IEwgMTY4OC4wIDE0MTguNiBMIDE4NDguOCAxNDE4LjYgQyAxOTMyLjAgMTQxOC42IDE5OTMuNCAxMzYxLjggMTk5My40IDEyODYuOCBDIDE5OTMuNCAxMjEyLjIgMTkzMi43IDExNjAuMCAxODQ4LjggMTE2MC4wIEwgMTM4NS43IDExNjAuMCBMIDEzODUuNyAxNDE4LjYgTCAxNjM0LjcgMTQxOC42IFogTSAxNjYyLjEgMTM4My40IE0gNzM3LjUgMTc0My41IEwgNjUxLjMgMTU0OC4zIEMgNjQ1LjEgMTUzNC4zIDYzNi42IDE1MzIuMCA2MjYuMiAxNTMyLjAgQyA2MTYuOSAxNTMyLjAgNjA4LjAgMTUzNC4zIDYwMS44IDE1NDguMyBMIDUxNS42IDE3NDMuNSBMIDQ0Mi45IDE1MzUuNSBMIDQwMS4yIDE1MzUuNSBMIDQ4NS40IDE3NzcuOSBDIDQ4OS43IDE3OTAuNyA0OTguNiAxNzk3LjYgNTA5LjQgMTc5Ny42IEMgNTIxLjAgMTc5Ny42IDUyOS4xIDE3OTEuMCA1MzMuNCAxNzgyLjIgTCA2MjUuNCAxNTc4LjggTCA3MTguMiAxNzgyLjIgQyA3MjIuNCAxNzkxLjQgNzMxIDE3OTcuNiA3NDEuOCAxNzk3LjYgQyA3NTMuMCAxNzk3LjYgNzYxLjUgMTc5MC43IDc2Ni4xIDE3NzcuOSBMIDg1MC44IDE1MzUuNSBMIDgwOS44IDE1MzUuNSBaIE0gNzM3LjUgMTc0My41IE0gMTE5OS45IDE2MjEuNyBDIDExOTkuOSAxNTU4LjcgMTE0MC44IDE1MzUuNSAxMDgwLjUgMTUzNS41IEwgODc5LjAgMTUzNS41IEwgODc5LjAgMTU3MS4xIEwgMTA2NS4wIDE1NzEuMSBDIDExMTguNyAxNTcxLjEgMTE1Ny4wIDE1ODMuMCAxMTU3LjAgMTYyNC4wIEMgMTE1Ny4wIDE2NjEuMSAxMTEzLjMgMTY3NS4xIDEwNjUuMCAxNjc1LjEgTCA4NzkuOCAxNjc1LjEgTCA4NzkuOCAxNzk0LjEgTCA5MjEuNSAxNzk0LjEgTCA5MjEuNSAxNzA4LjcgTCAxMDcwLjAgMTcwOC43IEwgMTE2Mi40IDE3OTQuMSBMIDEyMTkuMiAxNzk0LjEgTCAxMTEzLjMgMTcwMS4wIEMgMTE2NS45IDE2OTYuMyAxMTk5LjkgMTY2OC4xIDExOTkuOSAxNjIxLjcgTSAxNDI1LjkgMTc1NS43IEwgMTI2Ni4xIDE2MDIuNyBMIDEzMDcuMSAxNTY5LjYgTCAxNTA5LjQgMTU2OS42IEwgMTU0NC41IDE1MzMuNiBMIDEzMDAuNyAxNTMzLjYgQyAxMjk2LjYgMTUzMy42IDEyOTIuNiAxNTM1LjAgMTI4OS4zIDE1MzcuNiBMIDEyMjcuNiAxNTg3LjYgQyAxMjIzLjYgMTU5MC45IDEyMjEuMiAxNTk1LjcgMTIyMC45IDE2MDAuOSBDIDEyMjAuNyAxNjA2LjAgMTIyMi44IDE2MTEuMCAxMjI2LjUgMTYxNC42IEwgMTQxMy45IDE3OTQgQyAxNDE3LjQgMTc5Ny4zIDE0MjEuOCAxNzk4LjkgMTQyNi4zIDE3OTguOSBDIDE0MzEuMCAxNzk4LjkgMTQzNS42IDE3OTcuMSAxNDM5LjIgMTc5My42IEwgMTY1Ny42IDE1NzEuMSBMIDE4MjYuMiAxNTcxLjEgQyAxODc5LjIgMTU3MS4xIDE5MTUuNSAxNTgzLjQgMTkxNS41IDE2MjMuNiBDIDE5MTUuNSAxNjYxLjEgMTg3NS43IDE2NzUuMSAxODI2LjYgMTY3NS4xIEwgMTY0MS44IDE2NzUuMSBMIDE2NDEuOCAxNzk0LjEgTCAxNjgzLjYgMTc5NC4xIEwgMTY4My42IDE3MDkuOSBMIDE4NDAuOSAxNzA5LjkgQyAxOTEyLjQgMTcwOS45IDE5NTcuMyAxNjc4LjkgMTk1Ny4zIDE2MjQuMCBDIDE5NTcuMyAxNTY4LjcgMTkxMi4xIDE1MzUuNSAxODQwLjkgMTUzNS41IEwgMTY0MS4wIDE1MzUuNSBaIE0gMTQyNS45IDE3NTUuNyBNIDgyNS44IDQwNy42IEwgNzcxLjkgNDA3LjYgTCAxMDMzLjkgNjc1LjAgWiBNIDEwMzAuOCA0MDcuNiBMIDg1OC4wIDQwNy42IEwgMTE0NS4wIDc3Ni4zIFogTSAxMzI3LjEgNDA3LjYgTCAxMjExLjAgNzc2LjIgTCAxNDk5LjcgNDA3LjYgWiBNIDE1MzIuMCA0MDcuNiBMIDEzMjIuNiA2NzUuMCBMIDE1ODYuNyA0MDcuNiBaIE0gMTQ4MC40IDI3Ny41IEwgMTQyMy4wIDI3Ny41IEwgMTUzMS4wIDM4Mi4yIEwgMTU4Ni43IDM4Mi4yIFogTSAxMzk0LjYgMjg1LjMgTCAxMzM5LjYgMzgyLjIgTCAxNDk0LjUgMzgyLjIgWiBNIDEyMTEuMSAyNzcuNSBMIDEzMTQuNiAzNzQuNSBMIDEzNjkuOCAyNzcuNSBaIE0gOTg4LjEgMjc3LjUgTCAxMDQzLjIgMzc0LjUgTCAxMTQ2LjggMjc3LjUgWiBNIDk2My4zIDI4NS4zIEwgODYzLjQgMzgyLjIgTCAxMDE4LjMgMzgyLjIgWiBNIDg4Mi4zIDI3Ny41IEwgNzcxLjkgMzgyLjIgTCA4MjYuOSAzODIuMiBMIDkzNC44IDI3Ny41IFogTSAxMTc5LjIgMjgyLjIgTCAxMDcyLjMgMzgyLjIgTCAxMjg1LjYgMzgyLjIgWiBNIDEwNTcuNCA0MDcuNiBMIDExNzkuMiA3OTYuNSBMIDEzMDAuNCA0MDcuNiBaIE0gMTA1Ny40IDQwNy42IE0gMTE3OS4yIDk3OC42IEwgNjAxLjQgMzkxLjUgTCA4MzguNiAxNjcuNiBMIDE1MTguOSAxNjcuNiBMIDE3NTguMCAzOTEuNSBaIE0gMTUzNS4wIDEyOC4zIEwgODIyLjkgMTI4LjMgTCA1NDUuMyAzOTEuNSBMIDExNzkuMiAxMDM1LjAgTCAxODEzLjIgMzkxLjUgWiBNIDE1MzUuMCAxMjguMyBNIDExNzkuMiA4NTcuNCBMIDcyMC45IDM5MS41IEwgODY5LjUgMjUyLjAgTCAxNDg5LjQgMjUyLjAgTCAxNjM3LjYgMzkxLjUgWiBNIDE1MDQuOCAyMDYuOSBMIDg1My43IDIwNi45IEwgNjU3LjUgMzkxLjUgTCAxMTc5LjIgOTIyLjEgTCAxNzAwLjkgMzkxLjUgWiBNIDE1MDQuOCAyMDYuOSIvPjwvc3ZnPg==" alt="" width="150" height="170" loading="lazy" />
       </div>
     </div>
-    <div class="sub-title">Estrutura de aplicação</div>
-    <div class="gallery rv">
-      <div class="tile wide"><div class="media-ph"></div><div class="cap">Sala de aplicação</div></div>
-      <div class="tile"><div class="media-ph"></div><div class="cap">Controle de ambiente</div></div>
-      <div class="tile"><div class="media-ph"></div><div class="cap">Equipe em atividade</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 6. PROCESSO ============ -->
-<section id="process">
-  <div class="container" id="process-root">
-    <article class="lv-head">
-      <div class="eyebrow pill">Processo</div>
-      <h2 class="lv-title" aria-label="Cinco etapas, nenhuma improvisada."><span class="lv-w" style="--i:0" aria-hidden="true"><span>Cinco</span></span><span class="lv-w" style="--i:1" aria-hidden="true"><span>etapas,</span></span><span class="lv-w" style="--i:2" aria-hidden="true"><span>nenhuma</span></span><span class="lv-w" style="--i:3" aria-hidden="true"><span><span class="hl"><span class="hl-t">improvisada.</span></span></span></span></h2>
-      <p class="lv-desc lv-reveal" style="--d:0s">Cada veículo passa pelo mesmo protocolo técnico, do diagnóstico à entrega.</p>
-    </article>
-
-    <ol class="lv-panel pr-flow lv-reveal" style="--d:.1s">
-      <li class="pr-step lv-reveal" style="--d:.2s">
-        <div class="pr-rail"><span class="pr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"/></svg></span></div>
-        <div class="pr-text">
-          <h3>Avaliação técnica da pintura</h3>
-          <p>Inspeção com iluminação específica para mapear o estado da pintura e definir o nível de proteção.</p>
-        </div>
-      </li>
-      <li class="pr-step lv-reveal" style="--d:.27s">
-        <div class="pr-rail"><span class="pr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C12 7.97056 7.97056 12 3 12C7.97056 12 12 16.0294 12 21C12 16.0294 16.0294 12 21 12C16.0294 12 12 7.97056 12 3Z"/></svg></span></div>
-        <div class="pr-text">
-          <h3>Descontaminação e correção</h3>
-          <p>Remoção de contaminantes, inclusive de vitrificação prévia quando houver, e correção de defeitos antes da aplicação, para que nada fique preso sob o filme.</p>
-        </div>
-      </li>
-      <li class="pr-step lv-reveal is-main" style="--d:.34s">
-        <div class="pr-rail"><span class="pr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11.302 21.6149C11.5234 21.744 11.6341 21.8086 11.7903 21.8421C11.9116 21.8681 12.0884 21.8681 12.2097 21.8421C12.3659 21.8086 12.4766 21.744 12.698 21.6149C14.646 20.4784 20 16.9084 20 12V6.6C20 6.04207 20 5.7631 19.8926 5.55048C19.7974 5.36198 19.6487 5.21152 19.4613 5.11409C19.25 5.00419 18.9663 5.00084 18.3988 4.99413C15.4272 4.95899 13.7136 4.71361 12 3C10.2864 4.71361 8.57279 4.95899 5.6012 4.99413C5.03373 5.00084 4.74999 5.00419 4.53865 5.11409C4.35129 5.21152 4.20259 5.36198 4.10739 5.55048C4 5.7631 4 6.04207 4 6.6V12C4 16.9084 9.35396 20.4784 11.302 21.6149Z"/></svg></span></div>
-        <div class="pr-text">
-          <h3>Aplicação</h3>
-          <p>Filme aplicado em ambiente controlado, com bordas envelopadas e peças desmontadas quando necessário.</p>
-        </div>
-      </li>
-      <li class="pr-step lv-reveal" style="--d:.41s">
-        <div class="pr-rail"><span class="pr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"/> <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H10M15 5H17C18.1046 5 19 5.89543 19 7V12"/> <path d="M13 19L15 21L20 16"/></svg></span></div>
-        <div class="pr-text">
-          <h3>Cura e inspeção final</h3>
-          <p>Período de cura e revisão painel a painel, com atenção a bordas, cantos e encaixes.</p>
-        </div>
-      </li>
-      <li class="pr-step lv-reveal" style="--d:.48s">
-        <div class="pr-rail"><span class="pr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.9999" r="9"/> <path d="M15 10.0001L11 14.0001L9 12.0001"/></svg></span></div>
-        <div class="pr-text">
-          <h3>Entrega após aprovação final</h3>
-          <p>O veículo só é liberado depois da inspeção aprovada, com orientações de cuidado para manter o filme como no primeiro dia.</p>
-        </div>
-      </li>
+    <div class="sub-title">Processo em 5 etapas</div>
+    <ol class="steps-mini rv">
+      <li><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"/></svg></span><span><small>Etapa 1</small>Avaliação técnica da pintura</span></li>
+      <li><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C12 7.97056 7.97056 12 3 12C7.97056 12 12 16.0294 12 21C12 16.0294 16.0294 12 21 12C16.0294 12 12 7.97056 12 3Z"/></svg></span><span><small>Etapa 2</small>Descontaminação e correção</span></li>
+      <li class="is-main"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11.302 21.6149C11.5234 21.744 11.6341 21.8086 11.7903 21.8421C11.9116 21.8681 12.0884 21.8681 12.2097 21.8421C12.3659 21.8086 12.4766 21.744 12.698 21.6149C14.646 20.4784 20 16.9084 20 12V6.6C20 6.04207 20 5.7631 19.8926 5.55048C19.7974 5.36198 19.6487 5.21152 19.4613 5.11409C19.25 5.00419 18.9663 5.00084 18.3988 4.99413C15.4272 4.95899 13.7136 4.71361 12 3C10.2864 4.71361 8.57279 4.95899 5.6012 4.99413C5.03373 5.00084 4.74999 5.00419 4.53865 5.11409C4.35129 5.21152 4.20259 5.36198 4.10739 5.55048C4 5.7631 4 6.04207 4 6.6V12C4 16.9084 9.35396 20.4784 11.302 21.6149Z"/></svg></span><span><small>Etapa 3</small>Aplicação em ambiente controlado</span></li>
+      <li><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"/> <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H10M15 5H17C18.1046 5 19 5.89543 19 7V12"/> <path d="M13 19L15 21L20 16"/></svg></span><span><small>Etapa 4</small>Cura e inspeção final</span></li>
+      <li><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.9999" r="9"/> <path d="M15 10.0001L11 14.0001L9 12.0001"/></svg></span><span><small>Etapa 5</small>Entrega após aprovação final</span></li>
     </ol>
-  </div>
-</section>
-
-<!-- ============ 7. PORTFÓLIO ============ -->
-<section id="portfolio">
-  <div class="container">
-    <div class="sec-head rv">
-      <div class="eyebrow">Portfólio</div>
-      <h2>O acabamento fala <span class="hl"><span class="hl-t">por si.</span></span></h2>
-      <p class="lead">Veículos entregues, organizados por modelo. Fotografia própria, sem banco de imagens.</p>
-    </div>
-
-    <div class="sub-title">Por modelo</div>
-    <div class="gallery rv">
-      <div class="tile"><div class="media-ph"></div></div>
-      <div class="tile"><div class="media-ph"></div></div>
-      <div class="tile"><div class="media-ph"></div></div>
-      <div class="tile"><div class="media-ph"></div></div>
-    </div>
-
-    <div class="sub-title">Acabamento de bordas</div>
-    <div class="gallery rv">
-      <div class="tile detail wide"><div class="media-ph"></div><div class="cap">Borda envelopada</div></div>
-      <div class="tile detail"><div class="media-ph"></div><div class="cap">Detalhe de farol</div></div>
-      <div class="tile detail"><div class="media-ph"></div><div class="cap">Encaixe</div></div>
-    </div>
-
-    <div class="sub-title">Bastidores e entrega</div>
-    <div class="vid-panel two vid-reveal" style="--d:0s">
-      <div class="vid-card vid-reveal" style="--ar:16/9;--d:.12s">
-        <div class="media-ph"></div>
-        <span class="vid-pill">Bastidores</span>
-        <span class="vid-play" aria-hidden="true"></span>
-      </div>
-      <div class="vid-card vid-reveal" style="--ar:16/9;--d:.24s">
-        <div class="media-ph"></div>
-        <span class="vid-pill">Entrega</span>
-        <span class="vid-play" aria-hidden="true"></span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1066,8 +1002,9 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
 <section id="proof">
   <div class="container">
     <div class="sec-head rv">
-      <div class="eyebrow">Prova social</div>
+      <div class="eyebrow">Resultados</div>
       <h2>Quem protegeu o próprio veículo, <span class="hl"><span class="hl-t">recomenda.</span></span></h2>
+      <p class="lead">Veículos entregues e avaliações reais de clientes.</p>
     </div>
 
     <div class="google rv">
@@ -1078,6 +1015,20 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
       </div>
     </div>
 
+    <div class="sub-title">Veículos entregues</div>
+    <div class="gallery rv">
+      <div class="tile"><div class="media-ph"></div></div>
+      <div class="tile"><div class="media-ph"></div></div>
+      <div class="tile"><div class="media-ph"></div></div>
+      <div class="tile"><div class="media-ph"></div></div>
+    </div>
+    <div class="sub-title">Acabamento de bordas</div>
+    <div class="gallery rv" style="margin-bottom:16px">
+      <div class="tile detail wide"><div class="media-ph"></div><div class="cap">Borda envelopada</div></div>
+      <div class="tile detail"><div class="media-ph"></div><div class="cap">Detalhe de farol</div></div>
+      <div class="tile detail"><div class="media-ph"></div><div class="cap">Encaixe</div></div>
+    </div>
+    <div class="sub-title">Avaliações</div>
     <div class="testis two rv">
       <article class="testi">
         <div class="txt">
@@ -1100,8 +1051,12 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
     <div class="vid-panel vid-reveal" style="--d:0s;margin-top:16px">
       <div class="vid-card vid-reveal" style="--ar:16/9;--d:.12s">
         <div class="media-ph"></div>
+        <span class="vid-pill">Feedback de cliente</span>
         <span class="vid-play" aria-hidden="true"></span>
       </div>
+    </div>
+    <div class="sec-cta rv">
+      <a href="#" class="btn btn-primary" data-wa>Quero o mesmo resultado</a>
     </div>
   </div>
 </section>
@@ -1127,14 +1082,6 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
           <ul><li class="is-y"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-y"/></svg><span><span class="y">Alta.</span> Barreira física que absorve pedras e riscos.</span></li></ul>
         </div>
         <div class="cmp-group">
-          <h4>Durabilidade</h4>
-          <ul><li class="is-y"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-y"/></svg><span><span class="y">Anos,</span> conforme a garantia do filme.</span></li></ul>
-        </div>
-        <div class="cmp-group">
-          <h4>Autorregeneração</h4>
-          <ul><li class="is-y"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-y"/></svg><span><span class="y">Sim,</span> riscos superficiais com calor.</span></li></ul>
-        </div>
-        <div class="cmp-group">
           <h4>Preservação da pintura original</h4>
           <ul><li class="is-y"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-y"/></svg><span><span class="y">Total.</span> Reversível, pintura de fábrica mantida.</span></li></ul>
         </div>
@@ -1148,14 +1095,6 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
         <div class="cmp-group">
           <h4>Proteção contra impacto</h4>
           <ul><li class="is-n"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-n"/></svg><span><span class="n">Nenhuma.</span> A pintura de fábrica fica exposta.</span></li></ul>
-        </div>
-        <div class="cmp-group">
-          <h4>Durabilidade</h4>
-          <ul><li class="is-m"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-m"/></svg><span><span class="m">Desgaste contínuo</span> com o uso do veículo.</span></li></ul>
-        </div>
-        <div class="cmp-group">
-          <h4>Autorregeneração</h4>
-          <ul><li class="is-n"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-n"/></svg><span><span class="n">Não.</span></span></li></ul>
         </div>
         <div class="cmp-group">
           <h4>Preservação da pintura original</h4>
@@ -1173,14 +1112,6 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
           <ul><li class="is-n"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-n"/></svg><span><span class="n">Nenhuma.</span> A pintura nova volta a ficar exposta.</span></li></ul>
         </div>
         <div class="cmp-group">
-          <h4>Durabilidade</h4>
-          <ul><li class="is-m"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-m"/></svg><span><span class="m">Depende</span> do material, sem camada protetora.</span></li></ul>
-        </div>
-        <div class="cmp-group">
-          <h4>Autorregeneração</h4>
-          <ul><li class="is-n"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-n"/></svg><span><span class="n">Não.</span></span></li></ul>
-        </div>
-        <div class="cmp-group">
           <h4>Preservação da pintura original</h4>
           <ul><li class="is-n"><svg class="cmp-ic" aria-hidden="true"><use href="#cmp-n"/></svg><span><span class="n">Não.</span> Substitui a pintura de fábrica.</span></li></ul>
         </div>
@@ -1192,6 +1123,10 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
     </div>
     <p class="compare-note rv">Para quem pensa em patrimônio, o PPF é a opção que combina barreira física, preservação da pintura de fábrica e reversibilidade.</p>
     <p class="compare-note rv">PPF e vitrificação são complementares. O PPF oferece a barreira física contra impacto e a vitrificação, aplicada sobre ele, facilita a limpeza e a manutenção.</p>
+    <div class="sec-cta rv">
+      <a href="#" class="btn btn-primary" data-wa>Agendar avaliação</a>
+      <p class="hero-note">Proteja enquanto a pintura ainda é original.</p>
+    </div>
   </div>
 </section>
 
@@ -1201,45 +1136,25 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
     <h2 class="faq-title faq-io" aria-label="Perguntas frequentes"><span class="faq-w" style="--i:0" aria-hidden="true">Perguntas</span><span class="faq-w" style="--i:1" aria-hidden="true"><span class="hl"><span class="hl-t">frequentes</span></span></span></h2>
     <p class="faq-desc faq-reveal faq-io" style="--d:.1s;--t:.4s">Reunimos as dúvidas técnicas mais comuns sobre PPF. Se não encontrar o que procura, fale com a nossa equipe pelo <a href="#" data-wa data-msg="Olá, tenho uma dúvida sobre PPF.">WhatsApp</a>.</p>
     <div class="faq-list faq-reveal faq-io" style="--d:.15s;--y:20px;--t:.4s">
-        <div class="faq-item faq-reveal faq-io" style="--d:0.2s;--y:10px;--t:.35s;--e:ease-out">
-          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b0" aria-expanded="false" aria-controls="faq-p0"><span>O filme é visível?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
-          <div class="faq-panel" id="faq-p0"><div><p>O filme é transparente e, quando bem aplicado, a percepção visual é da própria pintura. Em coberturas parciais, como o capô parcial do nível Frontal, o corte do filme pode ser percebido de perto, sob determinada luz. Na versão fosco (satin), o efeito visual é intencional e muda o aspecto do carro.</p></div></div>
+        <div class="faq-item faq-reveal faq-io" style="--d:0.10s;--y:10px;--t:.35s;--e:ease-out">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b9" aria-expanded="false" aria-controls="faq-p9"><span>Quanto custa?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
+          <div class="faq-panel" id="faq-p9"><div><p>O investimento varia conforme o modelo, o nível de proteção e o estado da pintura. Por isso o valor é apresentado após a avaliação técnica, de forma personalizada.</p></div></div>
         </div>
-        <div class="faq-item faq-reveal faq-io" style="--d:0.24s;--y:10px;--t:.35s;--e:ease-out">
+        <div class="faq-item faq-reveal faq-io" style="--d:0.18s;--y:10px;--t:.35s;--e:ease-out">
           <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b1" aria-expanded="false" aria-controls="faq-p1"><span>Quanto tempo dura?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
           <div class="faq-panel" id="faq-p1"><div><p>A vida útil real depende do filme, do uso e da manutenção. As condições completas estão no certificado entregue com o veículo.</p></div></div>
         </div>
-        <div class="faq-item faq-reveal faq-io" style="--d:0.28s;--y:10px;--t:.35s;--e:ease-out">
-          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b2" aria-expanded="false" aria-controls="faq-p2"><span>Posso lavar normalmente? Posso vitrificar por cima?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
-          <div class="faq-panel" id="faq-p2"><div><p>Sim, após o período de cura informado pela equipe na entrega. A vitrificação por cima é possível com produtos compatíveis com o filme, e a equipe orienta qual usar.</p></div></div>
-        </div>
-        <div class="faq-item faq-reveal faq-io" style="--d:0.32s;--y:10px;--t:.35s;--e:ease-out">
-          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b3" aria-expanded="false" aria-controls="faq-p3"><span>Danifica a pintura na remoção?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
-          <div class="faq-panel" id="faq-p3"><div><p>Em pintura original de fábrica, a remoção do filme não danifica a pintura. Superfícies repintadas ou com falhas de adesão do verniz são avaliadas antes da aplicação, justamente por esse motivo.</p></div></div>
-        </div>
-        <div class="faq-item faq-reveal faq-io" style="--d:0.36s;--y:10px;--t:.35s;--e:ease-out">
-          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b4" aria-expanded="false" aria-controls="faq-p4"><span>Vale para carro zero km?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
-          <div class="faq-panel" id="faq-p4"><div><p>É o cenário ideal. A pintura está intacta e o filme preserva o estado de fábrica desde o primeiro dia.</p></div></div>
-        </div>
-        <div class="faq-item faq-reveal faq-io" style="--d:0.4s;--y:10px;--t:.35s;--e:ease-out">
+        <div class="faq-item faq-reveal faq-io" style="--d:0.26s;--y:10px;--t:.35s;--e:ease-out">
           <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b5" aria-expanded="false" aria-controls="faq-p5"><span>Quanto tempo o carro fica na loja?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
           <div class="faq-panel" id="faq-p5"><div><p>Depende do nível de proteção e da necessidade de correção de pintura. O prazo é informado na avaliação, antes de qualquer decisão.</p></div></div>
         </div>
-        <div class="faq-item faq-reveal faq-io" style="--d:0.44s;--y:10px;--t:.35s;--e:ease-out">
+        <div class="faq-item faq-reveal faq-io" style="--d:0.34s;--y:10px;--t:.35s;--e:ease-out">
+          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b2" aria-expanded="false" aria-controls="faq-p2"><span>Posso lavar normalmente? Posso vitrificar por cima?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
+          <div class="faq-panel" id="faq-p2"><div><p>Sim, após o período de cura informado pela equipe na entrega. A vitrificação por cima é possível com produtos compatíveis com o filme, e a equipe orienta qual usar.</p></div></div>
+        </div>
+        <div class="faq-item faq-reveal faq-io" style="--d:0.42s;--y:10px;--t:.35s;--e:ease-out">
           <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b6" aria-expanded="false" aria-controls="faq-p6"><span>Afeta a garantia de fábrica do veículo?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
           <div class="faq-panel" id="faq-p6"><div><p>O filme é aplicado sobre a pintura, sem intervenção em componentes mecânicos. Para dúvidas sobre a garantia de pintura de fábrica, a equipe orienta conforme a marca do seu veículo.</p></div></div>
-        </div>
-        <div class="faq-item faq-reveal faq-io" style="--d:0.48s;--y:10px;--t:.35s;--e:ease-out">
-          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b7" aria-expanded="false" aria-controls="faq-p7"><span>Pode ser aplicado sobre vitrificação existente?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
-          <div class="faq-panel" id="faq-p7"><div><p>Em geral, não diretamente. A vitrificação reduz a aderência do filme, por isso é removida na etapa de descontaminação e correção, antes da aplicação. Depois, uma nova vitrificação pode ser aplicada sobre o PPF.</p></div></div>
-        </div>
-        <div class="faq-item faq-reveal faq-io" style="--d:0.52s;--y:10px;--t:.35s;--e:ease-out">
-          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b8" aria-expanded="false" aria-controls="faq-p8"><span>Funciona em pintura fosca de fábrica?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
-          <div class="faq-panel" id="faq-p8"><div><p>Sim, com filme específico para acabamento fosco, que preserva a textura original. Um filme brilho convencional alteraria o aspecto da pintura. A equipe indica o filme adequado na avaliação.</p></div></div>
-        </div>
-        <div class="faq-item faq-reveal faq-io" style="--d:0.56s;--y:10px;--t:.35s;--e:ease-out">
-          <h3 class="faq-q"><button type="button" class="faq-trigger" id="faq-b9" aria-expanded="false" aria-controls="faq-p9"><span>Quanto custa?</span><svg class="faq-chev ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chev"/></svg></button></h3>
-          <div class="faq-panel" id="faq-p9"><div><p>O investimento varia conforme o modelo, o nível de proteção e o estado da pintura. Por isso o valor é apresentado após a avaliação técnica, de forma personalizada.</p></div></div>
         </div>
     </div>
   </div>
@@ -1329,23 +1244,6 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
         <ul class="foot-social">
           <li><a href="https://www.instagram.com/speedwrapdiamond/" target="_blank" rel="noopener" aria-label="Instagram da Speed Wrap Diamond: @speedwrapdiamond"><svg class="ico fill" aria-hidden="true"><use href="#i-instagram"/></svg><span class="ig-handle">@speedwrapdiamond</span><svg class="ico fill ico-ver" aria-hidden="true"><use href="#i-verified"/></svg></a></li>
         </ul>
-      </div>
-      <nav class="foot-nav" aria-label="Navegação do rodapé">
-        <h4>Navegação</h4>
-        <a href="#hero">Início</a>
-        <a href="#levels">Níveis de proteção</a>
-        <a href="#diff">Diferencial</a>
-        <a href="#process">Processo</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#faq">Perguntas frequentes</a>
-        <a href="#contact">Contato</a>
-      </nav>
-      <div class="foot-levels">
-        <h4>Níveis de proteção</h4>
-        <a href="#levels">Frontal</a>
-        <a href="#levels">Full Front</a>
-        <a href="#levels">Full Body</a>
-        <a href="#levels">Complementos</a>
       </div>
       <div class="foot-addr">
         <h4>Endereço</h4>
