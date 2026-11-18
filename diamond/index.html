@@ -682,6 +682,68 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
 .foot-social a .ico{width:17px;height:17px;color:var(--soft);fill:currentColor;transition:color .25s ease}
 .foot-social a .ico-ver{width:14px;height:14px;color:#1d9bf0}
 .foot-social a:hover,.foot-social a:hover .ico:not(.ico-ver){color:#fff}
+
+/* ===== HOVER EM BLOCOS NAO CLICAVEIS (somente mouse; leve) ===== */
+.risk,.risk-callout,.finish div,.chips span,.lv-card,.tile,.testi,.google,.gf-card,.cmp-col,.pr-ico,.pr-text h3{transition:background-color .35s ease,border-color .35s ease,box-shadow .35s ease,translate .35s ease,color .35s ease}
+.risk h3,.risk .n::before,.tile .media-ph,.tile .cap,.gf-pattern>div,.gf-ico,.gf-gem{transition:translate .35s ease,rotate .45s ease,scale .6s ease,color .35s ease,opacity .35s ease,filter .35s ease}
+@media (hover:hover) and (pointer:fine){
+  .risk:hover{background:#0d0d0d}
+  .risk:hover .n::before{rotate:90deg;border-color:#fff}
+  .risk:hover h3{translate:4px 0}
+  .risk-callout:hover{border-left-color:#fff;background:linear-gradient(90deg,rgba(255,255,255,.13),transparent)}
+  .finish div:hover,.chips span:hover{border-color:rgba(255,255,255,.5);background:#111;translate:0 -3px}
+  .chips span:hover{color:#fff}
+  .lv-card:hover{translate:0 -6px}
+  .lv-card:not(.main):hover{box-shadow:0 0 0 1px rgba(255,255,255,.18),0 24px 50px rgba(0,0,0,.55)}
+  .tile:hover{border-color:rgba(255,255,255,.45)}
+  .tile:hover .media-ph{scale:1.05}
+  .tile:hover .cap{translate:0 -4px;color:#fff}
+  .testi:hover,.google:hover{border-color:rgba(255,255,255,.3);translate:0 -4px;box-shadow:0 20px 40px rgba(0,0,0,.5)}
+  .pr-step:hover .pr-ico{translate:0 -3px;border-color:rgba(255,255,255,.55)}
+  .pr-step:hover .pr-text h3{color:#fff}
+  /* Diferencial: animacao propria em cada icone */
+  .gf-card:hover .gf-pattern>div{opacity:1;filter:brightness(1.8)}
+  .gf-card:hover .gf-ico{color:#fff;filter:drop-shadow(0 0 6px rgba(255,255,255,.45))}
+  .gf-card:nth-child(1):hover .gf-ico{animation:gfHeat .9s ease}
+  .gf-card:nth-child(2):hover .gf-ico{animation:gfStack .8s ease}
+  .gf-card:nth-child(3):hover .gf-ico{animation:gfCut .7s ease}
+  .gf-card:nth-child(4):hover .gf-ico{animation:gfSwing 1s ease;transform-origin:50% 10%}
+  .gf-card:nth-child(5):hover .gf-ico{animation:gfRise .8s ease}
+  .gf-brand:hover .gf-gem{color:rgba(255,255,255,.55);scale:1.08;filter:drop-shadow(0 0 12px rgba(255,255,255,.35))}
+}
+@keyframes gfHeat{0%,100%{scale:1}35%{scale:1 1.18}65%{scale:1 .94}}
+@keyframes gfStack{0%,100%{translate:0 0}30%{translate:0 -6px}60%{translate:0 1px}}
+@keyframes gfCut{0%,100%{rotate:0deg}25%{rotate:-14deg}50%{rotate:10deg}75%{rotate:-6deg}}
+@keyframes gfSwing{0%,100%{rotate:0deg}20%{rotate:14deg}45%{rotate:-10deg}70%{rotate:5deg}}
+@keyframes gfRise{0%,100%{translate:0 0;scale:1}40%{translate:0 -5px;scale:1.08}}
+@media (prefers-reduced-motion:reduce){.gf-card .gf-ico{animation:none!important}.risk:hover h3,.lv-card:hover,.tile:hover .media-ph,.testi:hover,.google:hover,.finish div:hover,.chips span:hover,.pr-step:hover .pr-ico{translate:none;scale:none}}
+
+/* ===== DIFERENCIAL: diamante vira logo no hover ===== */
+.gf-gem{transition:opacity .45s ease,scale .55s ease,rotate .55s ease,color .35s ease,filter .35s ease}
+.gf-logo{position:absolute;left:50%;top:54%;width:auto;height:min(62%,170px);translate:-50% -50%;opacity:0;scale:.82;filter:blur(3px);pointer-events:none;transition:opacity .45s ease .08s,scale .55s ease .08s,filter .45s ease .08s}
+@media (hover:hover) and (pointer:fine){
+  .gf-brand:hover .gf-gem{opacity:0;scale:1.25;rotate:-8deg;filter:blur(2px)}
+  .gf-brand:hover .gf-logo{opacity:.92;scale:1;filter:blur(0) drop-shadow(0 0 14px rgba(255,255,255,.18))}
+}
+/* ===== COMPARATIVO: hover mais visivel ===== */
+.cmp-col{transition:translate .4s ease,background-color .4s ease,box-shadow .4s ease,border-radius .4s ease}
+.cmp-title{transition:letter-spacing .4s ease,filter .4s ease}
+.cmp-group li{transition:translate .35s ease}
+.cmp-ic{transition:scale .35s ease,filter .35s ease}
+@media (hover:hover) and (pointer:fine){
+  .cmp-col:hover{translate:0 -10px;border-radius:12px;background:rgba(255,255,255,.055);box-shadow:0 0 0 1px rgba(255,255,255,.16),0 34px 70px rgba(0,0,0,.6);position:relative;z-index:1}
+  .cmp-col.is-main:hover{background:rgba(255,255,255,.09);box-shadow:0 0 0 1px rgba(255,255,255,.35),0 34px 70px rgba(0,0,0,.6)}
+  .cmp-col:hover .cmp-title{letter-spacing:.07em;filter:brightness(1.25)}
+  .cmp-col:hover .cmp-group li{translate:4px 0}
+  .cmp-col:hover .cmp-ic{scale:1.15}
+  .cmp-col.is-main:hover .cmp-ic{filter:drop-shadow(0 0 6px rgba(255,255,255,.55))}
+  .cmp-col:hover .cmp-group:nth-child(2) li,.cmp-col:hover .cmp-group:nth-child(2) .cmp-ic{transition-delay:0s}
+  .cmp-col:hover .cmp-group:nth-child(3) li,.cmp-col:hover .cmp-group:nth-child(3) .cmp-ic{transition-delay:.05s}
+  .cmp-col:hover .cmp-group:nth-child(4) li,.cmp-col:hover .cmp-group:nth-child(4) .cmp-ic{transition-delay:.1s}
+  .cmp-col:hover .cmp-group:nth-child(5) li,.cmp-col:hover .cmp-group:nth-child(5) .cmp-ic{transition-delay:.15s}
+  .cmp-col:hover .cmp-group:nth-child(6) li,.cmp-col:hover .cmp-group:nth-child(6) .cmp-ic{transition-delay:.2s}
+}
+@media (prefers-reduced-motion:reduce){.cmp-col:hover,.cmp-col:hover .cmp-group li{translate:none}.cmp-col:hover .cmp-ic{scale:none}.gf-brand:hover .gf-gem{scale:none;rotate:none}}
 </style>
 </head>
 <body>
@@ -709,7 +771,7 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
     <div class="hero-body">
       <div class="seal"><i></i>Uma divisão do Grupo Speed</div>
       <h1><span class="h1-kicker">Proteção PPF</span>A pintura original do seu veículo é <span class="hl"><span class="hl-t">patrimônio.</span></span> Proteja como tal.</h1>
-      <p class="hero-sub">PPF de alta performance: transparente, resistente a impactos e com garantia. Pegue a estrada e estacione sem receio, com a originalidade de fábrica preservada.</p>
+      <p class="hero-sub">PPF de alta performance: transparente, resistente a impactos e aplicado por especialistas em ambiente controlado. Pegue a estrada e estacione sem receio, com a originalidade de fábrica preservada.</p>
       <div class="hero-cta">
         <a href="#" class="btn btn-primary" data-wa>Agendar avaliação</a>
         <a href="#levels" class="btn btn-ghost">Ver níveis de proteção</a>
@@ -899,25 +961,8 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
       <div class="gf-card gf-brand" aria-hidden="true">
         <div class="gf-pattern" aria-hidden="true"><div><svg class="gf-svg" width="100%" height="100%"><rect width="100%" height="100%" stroke-width="0" fill="url(#gfp0)"/><svg x="-12" y="4" style="overflow:visible"><rect stroke-width="0" width="21" height="21" x="200" y="80"/><rect stroke-width="0" width="21" height="21" x="200" y="100"/><rect stroke-width="0" width="21" height="21" x="180" y="60"/><rect stroke-width="0" width="21" height="21" x="160" y="80"/><rect stroke-width="0" width="21" height="21" x="140" y="100"/></svg></svg></div></div>
         <svg class="gf-gem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+        <img class="gf-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjM2MSAxMjQgMTYzNiAxODU1IiBmaWxsPSIjZmZmZmZmIj48cGF0aCBkPSJNIDk2MS40IDE5NTIuNCBDIDk1OC42IDE5NTcuMCA5NTQuOCAxOTYwLjcgOTQ5LjggMTk2My4zIEMgOTQ0LjkgMTk2Ni4wIDkzOS4wIDE5NjcuMyA5MzIuMyAxOTY3LjMgTCA5MDkuOCAxOTY3LjMgTCA5MDkuOCAxOTA1LjIgTCA5MzIuMyAxOTA1LjIgQyA5MzkuMCAxOTA1LjIgOTQ0LjkgMTkwNi41IDk0OS44IDE5MDkuMiBDIDk1NC44IDE5MTEuOCA5NTguNiAxOTE1LjUgOTYxLjQgMTkyMC4xIEMgOTY0LjEgMTkyNC43IDk2NS41IDE5MzAuMSA5NjUuNSAxOTM2LjMgQyA5NjUuNSAxOTQyLjMgOTY0LjEgMTk0Ny43IDk2MS40IDE5NTIuNCBNIDk1NC4xIDE5MDMuMSBDIDk0Ny45IDE4OTkuOSA5NDAuOCAxODk4LjMgOTMyLjcgMTg5OC4zIEwgOTAxLjggMTg5OC4zIEwgOTAxLjggMTk3NC4yIEwgOTMyLjcgMTk3NC4yIEMgOTQwLjggMTk3NC4yIDk0Ny45IDE5NzIuNiA5NTQuMSAxOTY5LjQgQyA5NjAuMiAxOTY2LjIgOTY0LjkgMTk2MS43IDk2OC4zIDE5NTYuMCBDIDk3MS43IDE5NTAuMyA5NzMuNCAxOTQzLjcgOTczLjQgMTkzNi4zIEMgOTczLjQgMTkyOC44IDk3MS43IDE5MjIuMiA5NjguMyAxOTE2LjUgQyA5NjQuOSAxOTEwLjggOTYwLjIgMTkwNi4zIDk1NC4xIDE5MDMuMSBNIDk5MS41IDE5NzQuMiBMIDk5OS41IDE5NzQuMiBMIDk5OS41IDE4OTguMyBMIDk5MS41IDE4OTguMyBaIE0gOTkxLjUgMTk3NC4yIE0gMTAzMi40IDE5NDcuNCBMIDEwNTAuNyAxOTA2LjYgTCAxMDY5LjAgMTk0Ny40IFogTSAxMDQ2LjggMTg5OC4zIEwgMTAxMi4xIDE5NzQuMiBMIDEwMjAuNCAxOTc0LjIgTCAxMDI5LjUgMTk1NCBMIDEwNzEuOSAxOTU0IEwgMTA4MS4wIDE5NzQuMiBMIDEwODkuNSAxOTc0LjIgTCAxMDU0LjcgMTg5OC4zIFogTSAxMDQ2LjggMTg5OC4zIE0gMTE0MS43IDE5NTQuNiBMIDExMDguNyAxODk4LjMgTCAxMTAyLjEgMTg5OC4zIEwgMTEwMi4xIDE5NzQuMiBMIDExMDkuOCAxOTc0LjIgTCAxMTA5LjggMTkxMy44IEwgMTEzOS42IDE5NjQuNiBMIDExNDMuNCAxOTY0LjYgTCAxMTczLjMgMTkxMy41IEwgMTE3My4zIDE5NzQuMiBMIDExODEuMCAxOTc0LjIgTCAxMTgxLjAgMTg5OC4zIEwgMTE3NC4zIDE4OTguMyBaIE0gMTE0MS43IDE5NTQuNiBNIDEyNjguMyAxOTQ4LjggQyAxMjY2LjggMTk1Mi42IDEyNjQuNSAxOTU1LjkgMTI2MS43IDE5NTguOCBDIDEyNTguOCAxOTYxLjYgMTI1NS40IDE5NjMuOCAxMjUxLjYgMTk2NS40IEMgMTI0Ny43IDE5NjcuMCAxMjQzLjUgMTk2Ny43IDEyMzguOSAxOTY3LjcgQyAxMjM0LjQgMTk2Ny43IDEyMzAuMSAxOTY3LjAgMTIyNi4yIDE5NjUuNCBDIDEyMjIuMyAxOTYzLjggMTIxOC45IDE5NjEuNiAxMjE2LjEgMTk1OC44IEMgMTIxMy4yIDE5NTUuOSAxMjExLjAgMTk1Mi42IDEyMDkuMyAxOTQ4LjcgQyAxMjA3LjcgMTk0NC45IDEyMDYuOSAxOTQwLjcgMTIwNi45IDE5MzYuMyBDIDEyMDYuOSAxOTMxLjcgMTIwNy43IDE5MjcuNSAxMjA5LjMgMTkyMy43IEMgMTIxMS4wIDE5MTkuOSAxMjEzLjIgMTkxNi42IDEyMTYuMSAxOTEzLjcgQyAxMjE4LjkgMTkxMC45IDEyMjIuMyAxOTA4LjcgMTIyNi4yIDE5MDcuMSBDIDEyMzAuMSAxOTA1LjYgMTIzNC40IDE5MDQuOCAxMjM4LjkgMTkwNC44IEMgMTI0My41IDE5MDQuOCAxMjQ3LjcgMTkwNS42IDEyNTEuNiAxOTA3LjEgQyAxMjU1LjQgMTkwOC43IDEyNTguOCAxOTEwLjkgMTI2MS43IDE5MTMuNyBDIDEyNjQuNSAxOTE2LjYgMTI2Ni44IDE5MTkuOSAxMjY4LjMgMTkyMy43IEMgMTI2OS45IDE5MjcuNSAxMjcwLjcgMTkzMS43IDEyNzAuNyAxOTM2LjMgQyAxMjcwLjcgMTk0MC44IDEyNjkuOSAxOTQ1LjAgMTI2OC4zIDE5NDguOCBNIDEyNjcuNCAxOTA4LjYgQyAxMjYzLjggMTkwNS4xIDEyNTkuNiAxOTAyLjQgMTI1NC44IDE5MDAuNSBDIDEyNDkuOSAxODk4LjYgMTI0NC42IDE4OTcuNiAxMjM4LjkgMTg5Ny42IEMgMTIzMy4xIDE4OTcuNiAxMjI3LjggMTg5OC42IDEyMjMuMCAxOTAwLjUgQyAxMjE4LjEgMTkwMi40IDEyMTMuOSAxOTA1LjEgMTIxMC4zIDE5MDguNiBDIDEyMDYuNyAxOTEyLjEgMTIwNC4wIDE5MTYuMiAxMjAyLjAgMTkyMC45IEMgMTIwMC4wIDE5MjUuNiAxMTk5LjAgMTkzMC43IDExOTkuMCAxOTM2LjMgQyAxMTk5LjAgMTk0MS44IDEyMDAuMCAxOTQ3IDEyMDIuMCAxOTUxLjYgQyAxMjA0LjAgMTk1Ni4zIDEyMDYuNyAxOTYwLjQgMTIxMC4zIDE5NjMuOSBDIDEyMTMuOSAxOTY3LjQgMTIxOC4xIDE5NzAuMSAxMjIzLjAgMTk3Mi4wIEMgMTIyNy45IDE5NzMuOSAxMjMzLjIgMTk3NC45IDEyMzguOSAxOTc0LjkgQyAxMjQ0LjYgMTk3NC45IDEyNDkuOSAxOTczLjkgMTI1NC44IDE5NzIuMCBDIDEyNTkuNiAxOTcwLjEgMTI2My44IDE5NjcuNCAxMjY3LjQgMTk2My45IEMgMTI3MS4wIDE5NjAuNSAxMjczLjggMTk1Ni40IDEyNzUuOCAxOTUxLjcgQyAxMjc3LjggMTk0Ny4wIDEyNzguOCAxOTQxLjggMTI3OC44IDE5MzYuMyBDIDEyNzguOCAxOTMwLjcgMTI3Ny44IDE5MjUuNSAxMjc1LjggMTkyMC44IEMgMTI3My44IDE5MTYuMSAxMjcxLjAgMTkxMi4xIDEyNjcuNCAxOTA4LjYgTSAxMzUyLjQgMTk1OS45IEwgMTMwMy40IDE4OTguMyBMIDEyOTYuOCAxODk4LjMgTCAxMjk2LjggMTk3NC4yIEwgMTMwNC44IDE5NzQuMiBMIDEzMDQuOCAxOTEyLjYgTCAxMzUzLjcgMTk3NC4yIEwgMTM2MC4zIDE5NzQuMiBMIDEzNjAuMyAxODk4LjMgTCAxMzUyLjQgMTg5OC4zIFogTSAxMzUyLjQgMTk1OS45IE0gMTQ0NC42IDE5NTIuNCBDIDE0NDEuOSAxOTU3LjAgMTQzOC4wIDE5NjAuNyAxNDMzLjEgMTk2My4zIEMgMTQyOC4xIDE5NjYuMCAxNDIyLjMgMTk2Ny4zIDE0MTUuNSAxOTY3LjMgTCAxMzkzLjEgMTk2Ny4zIEwgMTM5My4xIDE5MDUuMiBMIDE0MTUuNSAxOTA1LjIgQyAxNDIyLjMgMTkwNS4yIDE0MjguMSAxOTA2LjUgMTQzMy4xIDE5MDkuMiBDIDE0MzguMCAxOTExLjggMTQ0MS45IDE5MTUuNSAxNDQ0LjYgMTkyMC4xIEMgMTQ0Ny40IDE5MjQuNyAxNDQ4LjcgMTkzMC4xIDE0NDguNyAxOTM2LjMgQyAxNDQ4LjcgMTk0Mi4zIDE0NDcuNCAxOTQ3LjcgMTQ0NC42IDE5NTIuNCBNIDE0NTEuNiAxOTE2LjUgQyAxNDQ4LjIgMTkxMC44IDE0NDMuNCAxOTA2LjMgMTQzNy4zIDE5MDMuMSBDIDE0MzEuMiAxODk5LjkgMTQyNC4xIDE4OTguMyAxNDE2LjAgMTg5OC4zIEwgMTM4NS4wIDE4OTguMyBMIDEzODUuMCAxOTc0LjIgTCAxNDE2LjAgMTk3NC4yIEMgMTQyNC4xIDE5NzQuMiAxNDMxLjIgMTk3Mi42IDE0MzcuMyAxOTY5LjQgQyAxNDQzLjQgMTk2Ni4yIDE0NDguMiAxOTYxLjcgMTQ1MS42IDE5NTYuMCBDIDE0NTUuMCAxOTUwLjMgMTQ1Ni43IDE5NDMuNyAxNDU2LjcgMTkzNi4zIEMgMTQ1Ni43IDE5MjguOCAxNDU1LjAgMTkyMi4yIDE0NTEuNiAxOTE2LjUgTSA1OTUuNCAxMzgzLjQgTCAzOTIuNSAxMzgzLjQgTCAzNjUuMCAxNDE4LjYgTCA1OTIuMyAxNDE4LjYgQyA2NjMuNSAxNDE4LjYgNjk0LjggMTM5Mi4zIDY5NC44IDEzNDIuOSBDIDY5NC44IDEyOTYuMSA2NjIuMyAxMjczLjMgNTk5LjMgMTI3My4zIEwgNDk0LjkgMTI3My4zIEMgNDQ1LjggMTI3My4zIDQxOC40IDEyNjkuNCA0MTguNCAxMjM2LjUgQyA0MTguNCAxMjA5LjUgNDM4LjEgMTE5NS42IDQ3Ny41IDExOTUuNiBMIDY2Mi43IDExOTUuNiBMIDY4OS44IDExNjAuMCBMIDQ4MC42IDExNjAuMCBDIDQwOS41IDExNjAuMCAzNzcuOCAxMTg2LjcgMzc3LjggMTIzMy44IEMgMzc3LjggMTI3OS4xIDQwOC4zIDEzMDQuMiA0NzMuNyAxMzA0LjIgTCA1NzguMCAxMzA0LjIgQyA2MjYuNCAxMzA0LjIgNjU0LjYgMTMwOC40IDY1NC42IDEzNDIuNSBDIDY1NC42IDEzNjkuNSA2MzUuMyAxMzgzLjQgNTk1LjQgMTM4My40IE0gMTAwMi45IDEyNDguMSBDIDEwMDIuOSAxMjg1LjYgOTYzLjEgMTI5OS42IDkxNC4wIDEyOTkuNiBMIDcyOS4yIDEyOTkuNiBMIDcyOS4yIDE0MTguNiBMIDc3MS4wIDE0MTguNiBMIDc3MS4wIDEzMzQuMyBMIDkyOC4zIDEzMzQuMyBDIDk5OS44IDEzMzQuMyAxMDQ0LjcgMTMwMy40IDEwNDQuNyAxMjQ4LjUgQyAxMDQ0LjcgMTE5My4yIDk5OS41IDExNjAuMCA5MjguMyAxMTYwLjAgTCA3MjguNCAxMTYwLjAgTCA3MjguNCAxMTk1LjYgTCA5MTMuNiAxMTk1LjYgQyA5NjYuNiAxMTk1LjYgMTAwMi45IDEyMDcuOSAxMDAyLjkgMTI0OC4xIE0gMTM1OS44IDEzODMuNCBMIDExMjUuMSAxMzgzLjQgTCAxMTI1LjEgMTMwNC4yIEwgMTM0NS40IDEzMDQuMiBMIDEzNDUuOSAxMjczLjMgTCAxMTI1LjEgMTI3My4zIEwgMTEyNS4xIDExOTUuNiBMIDEzMzIuMCAxMTk1LjYgTCAxMzU5LjggMTE2MC4wIEwgMTA4My4zIDExNjAuMCBMIDEwODMuMyAxNDE4LjYgTCAxMzMyLjMgMTQxOC42IFogTSAxMzU5LjggMTM4My40IE0gMTY2Mi4xIDEzODMuNCBMIDE0MjcuNCAxMzgzLjQgTCAxNDI3LjQgMTMwNC4yIEwgMTY0Ny44IDEzMDQuMiBMIDE2NDguMiAxMjczLjMgTCAxNDI3LjQgMTI3My4zIEwgMTQyNy40IDExOTUuNiBMIDE4NDguOCAxMTk1LjYgQyAxOTA3LjYgMTE5NS42IDE5NTIuMSAxMjM0LjIgMTk1Mi4xIDEyODguNyBDIDE5NTIuMSAxMzQzLjYgMTkwOC4wIDEzODMuNCAxODQ4LjggMTM4My40IEwgMTcyOS44IDEzODMuNCBMIDE3MjkuOCAxMjU3LjQgTCAxNjg4LjAgMTI1Ny40IEwgMTY4OC4wIDE0MTguNiBMIDE4NDguOCAxNDE4LjYgQyAxOTMyLjAgMTQxOC42IDE5OTMuNCAxMzYxLjggMTk5My40IDEyODYuOCBDIDE5OTMuNCAxMjEyLjIgMTkzMi43IDExNjAuMCAxODQ4LjggMTE2MC4wIEwgMTM4NS43IDExNjAuMCBMIDEzODUuNyAxNDE4LjYgTCAxNjM0LjcgMTQxOC42IFogTSAxNjYyLjEgMTM4My40IE0gNzM3LjUgMTc0My41IEwgNjUxLjMgMTU0OC4zIEMgNjQ1LjEgMTUzNC4zIDYzNi42IDE1MzIuMCA2MjYuMiAxNTMyLjAgQyA2MTYuOSAxNTMyLjAgNjA4LjAgMTUzNC4zIDYwMS44IDE1NDguMyBMIDUxNS42IDE3NDMuNSBMIDQ0Mi45IDE1MzUuNSBMIDQwMS4yIDE1MzUuNSBMIDQ4NS40IDE3NzcuOSBDIDQ4OS43IDE3OTAuNyA0OTguNiAxNzk3LjYgNTA5LjQgMTc5Ny42IEMgNTIxLjAgMTc5Ny42IDUyOS4xIDE3OTEuMCA1MzMuNCAxNzgyLjIgTCA2MjUuNCAxNTc4LjggTCA3MTguMiAxNzgyLjIgQyA3MjIuNCAxNzkxLjQgNzMxIDE3OTcuNiA3NDEuOCAxNzk3LjYgQyA3NTMuMCAxNzk3LjYgNzYxLjUgMTc5MC43IDc2Ni4xIDE3NzcuOSBMIDg1MC44IDE1MzUuNSBMIDgwOS44IDE1MzUuNSBaIE0gNzM3LjUgMTc0My41IE0gMTE5OS45IDE2MjEuNyBDIDExOTkuOSAxNTU4LjcgMTE0MC44IDE1MzUuNSAxMDgwLjUgMTUzNS41IEwgODc5LjAgMTUzNS41IEwgODc5LjAgMTU3MS4xIEwgMTA2NS4wIDE1NzEuMSBDIDExMTguNyAxNTcxLjEgMTE1Ny4wIDE1ODMuMCAxMTU3LjAgMTYyNC4wIEMgMTE1Ny4wIDE2NjEuMSAxMTEzLjMgMTY3NS4xIDEwNjUuMCAxNjc1LjEgTCA4NzkuOCAxNjc1LjEgTCA4NzkuOCAxNzk0LjEgTCA5MjEuNSAxNzk0LjEgTCA5MjEuNSAxNzA4LjcgTCAxMDcwLjAgMTcwOC43IEwgMTE2Mi40IDE3OTQuMSBMIDEyMTkuMiAxNzk0LjEgTCAxMTEzLjMgMTcwMS4wIEMgMTE2NS45IDE2OTYuMyAxMTk5LjkgMTY2OC4xIDExOTkuOSAxNjIxLjcgTSAxNDI1LjkgMTc1NS43IEwgMTI2Ni4xIDE2MDIuNyBMIDEzMDcuMSAxNTY5LjYgTCAxNTA5LjQgMTU2OS42IEwgMTU0NC41IDE1MzMuNiBMIDEzMDAuNyAxNTMzLjYgQyAxMjk2LjYgMTUzMy42IDEyOTIuNiAxNTM1LjAgMTI4OS4zIDE1MzcuNiBMIDEyMjcuNiAxNTg3LjYgQyAxMjIzLjYgMTU5MC45IDEyMjEuMiAxNTk1LjcgMTIyMC45IDE2MDAuOSBDIDEyMjAuNyAxNjA2LjAgMTIyMi44IDE2MTEuMCAxMjI2LjUgMTYxNC42IEwgMTQxMy45IDE3OTQgQyAxNDE3LjQgMTc5Ny4zIDE0MjEuOCAxNzk4LjkgMTQyNi4zIDE3OTguOSBDIDE0MzEuMCAxNzk4LjkgMTQzNS42IDE3OTcuMSAxNDM5LjIgMTc5My42IEwgMTY1Ny42IDE1NzEuMSBMIDE4MjYuMiAxNTcxLjEgQyAxODc5LjIgMTU3MS4xIDE5MTUuNSAxNTgzLjQgMTkxNS41IDE2MjMuNiBDIDE5MTUuNSAxNjYxLjEgMTg3NS43IDE2NzUuMSAxODI2LjYgMTY3NS4xIEwgMTY0MS44IDE2NzUuMSBMIDE2NDEuOCAxNzk0LjEgTCAxNjgzLjYgMTc5NC4xIEwgMTY4My42IDE3MDkuOSBMIDE4NDAuOSAxNzA5LjkgQyAxOTEyLjQgMTcwOS45IDE5NTcuMyAxNjc4LjkgMTk1Ny4zIDE2MjQuMCBDIDE5NTcuMyAxNTY4LjcgMTkxMi4xIDE1MzUuNSAxODQwLjkgMTUzNS41IEwgMTY0MS4wIDE1MzUuNSBaIE0gMTQyNS45IDE3NTUuNyBNIDgyNS44IDQwNy42IEwgNzcxLjkgNDA3LjYgTCAxMDMzLjkgNjc1LjAgWiBNIDEwMzAuOCA0MDcuNiBMIDg1OC4wIDQwNy42IEwgMTE0NS4wIDc3Ni4zIFogTSAxMzI3LjEgNDA3LjYgTCAxMjExLjAgNzc2LjIgTCAxNDk5LjcgNDA3LjYgWiBNIDE1MzIuMCA0MDcuNiBMIDEzMjIuNiA2NzUuMCBMIDE1ODYuNyA0MDcuNiBaIE0gMTQ4MC40IDI3Ny41IEwgMTQyMy4wIDI3Ny41IEwgMTUzMS4wIDM4Mi4yIEwgMTU4Ni43IDM4Mi4yIFogTSAxMzk0LjYgMjg1LjMgTCAxMzM5LjYgMzgyLjIgTCAxNDk0LjUgMzgyLjIgWiBNIDEyMTEuMSAyNzcuNSBMIDEzMTQuNiAzNzQuNSBMIDEzNjkuOCAyNzcuNSBaIE0gOTg4LjEgMjc3LjUgTCAxMDQzLjIgMzc0LjUgTCAxMTQ2LjggMjc3LjUgWiBNIDk2My4zIDI4NS4zIEwgODYzLjQgMzgyLjIgTCAxMDE4LjMgMzgyLjIgWiBNIDg4Mi4zIDI3Ny41IEwgNzcxLjkgMzgyLjIgTCA4MjYuOSAzODIuMiBMIDkzNC44IDI3Ny41IFogTSAxMTc5LjIgMjgyLjIgTCAxMDcyLjMgMzgyLjIgTCAxMjg1LjYgMzgyLjIgWiBNIDEwNTcuNCA0MDcuNiBMIDExNzkuMiA3OTYuNSBMIDEzMDAuNCA0MDcuNiBaIE0gMTA1Ny40IDQwNy42IE0gMTE3OS4yIDk3OC42IEwgNjAxLjQgMzkxLjUgTCA4MzguNiAxNjcuNiBMIDE1MTguOSAxNjcuNiBMIDE3NTguMCAzOTEuNSBaIE0gMTUzNS4wIDEyOC4zIEwgODIyLjkgMTI4LjMgTCA1NDUuMyAzOTEuNSBMIDExNzkuMiAxMDM1LjAgTCAxODEzLjIgMzkxLjUgWiBNIDE1MzUuMCAxMjguMyBNIDExNzkuMiA4NTcuNCBMIDcyMC45IDM5MS41IEwgODY5LjUgMjUyLjAgTCAxNDg5LjQgMjUyLjAgTCAxNjM3LjYgMzkxLjUgWiBNIDE1MDQuOCAyMDYuOSBMIDg1My43IDIwNi45IEwgNjU3LjUgMzkxLjUgTCAxMTc5LjIgOTIyLjEgTCAxNzAwLjkgMzkxLjUgWiBNIDE1MDQuOCAyMDYuOSIvPjwvc3ZnPg==" alt="" width="150" height="170" loading="lazy" />
       </div>
-    </div>
-    <div class="sub-block" id="warranty">
-      <div class="sec-head rv">
-        <div class="eyebrow">Garantia</div>
-        <h2>Dois níveis de garantia, <span class="hl"><span class="hl-t">ambos registrados.</span></span></h2>
-        <p class="lead">A proteção é coberta pelo fabricante do filme e pela própria aplicação.</p>
-      </div>
-      <div class="warr-grid rv">
-        <div class="warr">
-          <div class="tag">Garantia do fabricante</div>
-          <p>Cobre o material, conforme os termos do fabricante.</p>
-        </div>
-        <div class="warr">
-          <div class="tag">Garantia da aplicação</div>
-          <p>Cobre o serviço executado pela equipe Speed Wrap Diamond, com atendimento do Grupo Speed.</p>
-        </div>
-      </div>
-      <p class="compare-note rv">Condições completas no certificado entregue com o veículo.</p>
     </div>
     <div class="sub-title">Estrutura de aplicação</div>
     <div class="gallery rv">
@@ -969,8 +1014,8 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
       <li class="pr-step lv-reveal" style="--d:.48s">
         <div class="pr-rail"><span class="pr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.9999" r="9"/> <path d="M15 10.0001L11 14.0001L9 12.0001"/></svg></span></div>
         <div class="pr-text">
-          <h3>Entrega com garantia registrada</h3>
-          <p>O veículo é entregue com certificado de garantia registrado no nome do proprietário.</p>
+          <h3>Entrega após aprovação final</h3>
+          <p>O veículo só é liberado depois da inspeção aprovada, com orientações de cuidado para manter o filme como no primeiro dia.</p>
         </div>
       </li>
     </ol>
@@ -1308,7 +1353,7 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
         <a class="map-link" href="https://maps.google.com/?q=-2.499783,-44.292500" target="_blank" rel="noopener">Ver no Google Maps</a>
       </div>
       <div class="foot-hours">
-        <h4>Horário e contato</h4>
+        <h4>Contato</h4>
         <a href="tel:+559832275578">(98) 3227-5578</a>
         <a href="#" data-wa>WhatsApp</a>
         <a href="mailto:atendimento@xn--speedcomunicao-2hb7d.com">E-mail: atendimento@speedcomunicação.com</a>
