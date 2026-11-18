@@ -780,6 +780,9 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
 /* ===== LOGOS EM SVG (simbolo reutilizado) ===== */
 .logo-v .logo-v-svg{display:block;width:150px;height:auto;aspect-ratio:1636/1855}
 .gf-logo{aspect-ratio:1636/1855;width:auto}
+
+/* ===== DEPOIMENTOS: 5 cards (3 + 2) ===== */
+@media (min-width:768px){.testis.five{grid-template-columns:repeat(6,1fr)}.testis.five .testi{grid-column:span 2}.testis.five .testi:nth-child(n+4){grid-column:span 3}}
 </style>
 </head>
 <body>
@@ -1035,21 +1038,45 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
       <div class="tile detail"><div class="media-ph"></div><div class="cap">Detalhe de farol</div></div>
       <div class="tile detail"><div class="media-ph"></div><div class="cap">Encaixe</div></div>
     </div>
-    <div class="sub-title">Avaliações</div>
-    <div class="testis two rv">
+    <div class="sub-title">Avaliações da Speed no Google</div>
+    <div class="testis five rv">
       <article class="testi">
         <div class="txt">
           <div class="stars" aria-label="5 estrelas">★★★★★</div>
-          <p>“Ótimo atendimento, o pessoal super carismático e um excelente trabalho de qualidade! Obrigada!”</p>
-          <b>São Cristóvão Hotel</b>
+          <p>“Muito bons com envelopamento de veículos.”</p>
+          <b>Carlos Freitas</b>
           <span>Avaliação no Google</span>
         </div>
       </article>
       <article class="testi">
         <div class="txt">
           <div class="stars" aria-label="5 estrelas">★★★★★</div>
-          <p>“A maior do Maranhão.”</p>
-          <b>MR Envelopamento</b>
+          <p>“Muito bom atendimento, receptividade, e um trabalho de qualidade com excelentes profissionais.”</p>
+          <b>Ronaldo Ferreira</b>
+          <span>Avaliação no Google</span>
+        </div>
+      </article>
+      <article class="testi">
+        <div class="txt">
+          <div class="stars" aria-label="5 estrelas">★★★★★</div>
+          <p>“Profissionais super competentes com atendimento extraordinário! Super indico!”</p>
+          <b>Kelly Cristina</b>
+          <span>Avaliação no Google</span>
+        </div>
+      </article>
+      <article class="testi">
+        <div class="txt">
+          <div class="stars" aria-label="5 estrelas">★★★★★</div>
+          <p>“Serviço de qualidade, atendimento rápido e preciso!”</p>
+          <b>Thays Menezes</b>
+          <span>Avaliação no Google</span>
+        </div>
+      </article>
+      <article class="testi">
+        <div class="txt">
+          <div class="stars" aria-label="5 estrelas">★★★★★</div>
+          <p>“Ótimo atendimento, o pessoal super carismático e um excelente trabalho de qualidade! Obrigada!”</p>
+          <b>São Cristóvão Hotel</b>
           <span>Avaliação no Google</span>
         </div>
       </article>
