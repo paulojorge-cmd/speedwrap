@@ -950,6 +950,15 @@ html:has(.okm[open]){overflow:hidden}
 .lb-prev{left:12px}.lb-next{right:12px}
 .lb-nav:hover{background:rgba(10,10,11,.85)}
 @media (prefers-reduced-motion:reduce){.lb[open]{animation:none}}
+/* localizacao discreta no topo da hero */
+.hero-loc{display:flex;align-items:center;gap:6px;margin:0 0 14px;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,245,245,.55)}
+.hero-loc svg{width:12px;height:12px;flex:none}
+@media (max-aspect-ratio:1/1){.hero-loc{margin-bottom:10px}}
+/* galerias de resultados clicaveis */
+.tile[data-lb-src]{cursor:pointer}
+.tile[data-lb-src]:focus-visible{outline:1px solid rgba(255,255,255,.6);outline-offset:2px}
+.tile .sp-zoom{top:8px;right:8px;bottom:auto;z-index:2}
+@media (min-width:900px){.tile .sp-zoom{top:10px;right:10px}.tile:hover .sp-zoom,.tile:focus-visible .sp-zoom{opacity:1}}
 </style>
 </head>
 <body>
@@ -984,6 +993,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-shade"></div>
   <div class="container">
     <div class="hero-body">
+      <p class="hero-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>São Luís, MA.</p>
       <div class="seal"><i></i>Uma divisão do Grupo Speed</div>
       <h1><span class="h1-kicker">Proteção PPF</span>A pintura original do seu veículo é <span class="hl"><span class="hl-t">patrimônio.</span></span> Proteja como tal.</h1>
       <p class="hero-sub">PPF de alta performance: transparente, resistente a impactos e aplicado por especialistas em ambiente controlado. Pegue a estrada e estacione sem receio, com a originalidade de fábrica preservada.</p>
@@ -1202,16 +1212,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="sub-title">Veículos entregues</div>
     <div class="gallery rv">
-      <div class="tile"><img src="assets/img/modelo-1.webp" width="800" height="600" alt="Ducati Streetfighter vermelha com PPF" loading="lazy" decoding="async"></div>
-      <div class="tile"><img src="assets/img/modelo-2.webp" width="800" height="600" alt="BMW Série 3 cinza com PPF" loading="lazy" decoding="async"></div>
-      <div class="tile"><img src="assets/img/modelo-3.webp" width="800" height="600" alt="Porsche 911 azul com PPF" loading="lazy" decoding="async"></div>
-      <div class="tile"><img src="assets/img/modelo-4.webp" width="800" height="600" alt="Ford F-150 branca com PPF" loading="lazy" decoding="async"></div>
+      <div class="tile" data-lb-src="assets/img/modelo-1-g.webp" data-lb-n="Veículos entregues" data-lb-t="Ducati Streetfighter" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Ampliar foto: Ducati Streetfighter"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/modelo-1.webp" width="800" height="600" alt="Ducati Streetfighter vermelha com PPF" loading="lazy" decoding="async"></div>
+      <div class="tile" data-lb-src="assets/img/modelo-2-g.webp" data-lb-n="Veículos entregues" data-lb-t="BMW Série 3" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Ampliar foto: BMW Série 3"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/modelo-2.webp" width="800" height="600" alt="BMW Série 3 cinza com PPF" loading="lazy" decoding="async"></div>
+      <div class="tile" data-lb-src="assets/img/modelo-3-g.webp" data-lb-n="Veículos entregues" data-lb-t="Porsche 911" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Ampliar foto: Porsche 911"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/modelo-3.webp" width="800" height="600" alt="Porsche 911 azul com PPF" loading="lazy" decoding="async"></div>
+      <div class="tile" data-lb-src="assets/img/modelo-4-g.webp" data-lb-n="Veículos entregues" data-lb-t="Ford F-150" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Ampliar foto: Ford F-150"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/modelo-4.webp" width="800" height="600" alt="Ford F-150 branca com PPF" loading="lazy" decoding="async"></div>
     </div>
     <div class="sub-title">Acabamento de bordas</div>
     <div class="gallery rv" style="margin-bottom:16px">
-      <div class="tile detail wide"><img src="assets/img/borda-envelopada.webp" width="1200" height="675" alt="PPF envolvendo a borda do para-lama" loading="lazy" decoding="async"><div class="cap">Borda envelopada</div></div>
-      <div class="tile detail"><img src="assets/img/detalhe-farol.webp" width="800" height="600" alt="Farol de BMW protegido com PPF" loading="lazy" decoding="async"><div class="cap">Detalhe de farol</div></div>
-      <div class="tile detail"><img src="assets/img/encaixe.webp" width="800" height="600" alt="Ajuste do filme PPF no farol com espátula" loading="lazy" decoding="async"><div class="cap">Encaixe</div></div>
+      <div class="tile detail wide" data-lb-src="assets/img/borda-envelopada-g.webp" data-lb-n="Acabamento de bordas" data-lb-t="Borda envelopada" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Ampliar foto: Borda envelopada"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/borda-envelopada.webp" width="1200" height="675" alt="PPF envolvendo a borda do para-lama" loading="lazy" decoding="async"><div class="cap">Borda envelopada</div></div>
+      <div class="tile detail" data-lb-src="assets/img/detalhe-farol-g.webp" data-lb-n="Acabamento de bordas" data-lb-t="Detalhe de farol" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Ampliar foto: Detalhe de farol"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/detalhe-farol.webp" width="800" height="600" alt="Farol de BMW protegido com PPF" loading="lazy" decoding="async"><div class="cap">Detalhe de farol</div></div>
+      <div class="tile detail" data-lb-src="assets/img/encaixe-g.webp" data-lb-n="Acabamento de bordas" data-lb-t="Encaixe" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Ampliar foto: Encaixe"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/encaixe.webp" width="800" height="600" alt="Ajuste do filme PPF no farol com espátula" loading="lazy" decoding="async"><div class="cap">Encaixe</div></div>
     </div>
     <div class="sub-title">Avaliações da Speed no Google</div>
     <div class="testis five rv">
@@ -1499,8 +1509,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <img class="lb-img" src="" alt="" width="1080" height="810">
     <figcaption id="lb-cap"><small class="lb-n"></small><span class="lb-t"></span></figcaption>
   </figure>
-  <button type="button" class="lb-nav lb-prev" aria-label="Etapa anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
-  <button type="button" class="lb-nav lb-next" aria-label="Próxima etapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button type="button" class="lb-nav lb-next" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
 </dialog>
 <dialog class="okm" id="lead-ok" aria-labelledby="okm-title" aria-describedby="okm-text">
   <button type="button" class="okm-x" data-okm-close aria-label="Fechar">&times;</button>
@@ -1615,24 +1625,28 @@ safe(() => $$("[data-wa]").forEach(el => {
   el.addEventListener("click", () => track("whatsapp_click"));
 }));
 
-/* ===== ETAPAS: abre a foto ampliada com o nome da etapa ===== */
+/* ===== FOTOS AMPLIADAS: etapas do processo e galerias de resultados ===== */
 safe(() => {
-  const d = document.getElementById("step-lb"), items = Array.from(document.querySelectorAll(".steps-mini li[data-step]"));
-  if(!d || !items.length) return;
+  const d = document.getElementById("step-lb"); if(!d) return;
   const img = d.querySelector(".lb-img"), n = d.querySelector(".lb-n"), t = d.querySelector(".lb-t");
-  let cur = 0;
-  const show = i => {
-    cur = (i + items.length) % items.length; const li = items[cur], small = li.querySelector("small");
-    const th = li.querySelector(".sp img");
-    img.src = "assets/img/etapa-" + li.dataset.step + "-g.webp"; img.alt = th ? th.alt : "";
-    n.textContent = small ? small.textContent : ""; t.textContent = small ? small.parentNode.textContent.replace(small.textContent, "").trim() : "";
-  };
-  const open = i => { show(i); if(typeof d.showModal === "function"){ if(!d.open) d.showModal(); } else d.setAttribute("open", ""); };
-  const close = () => { if(typeof d.close === "function") d.close(); else d.removeAttribute("open"); };
-  items.forEach((li, i) => {
-    li.addEventListener("click", () => open(i));
-    li.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); open(i); } });
+  const steps = Array.from(document.querySelectorAll(".steps-mini li[data-step]")).map(li => {
+    const small = li.querySelector("small"), th = li.querySelector(".sp img");
+    return {el: li, src: "assets/img/etapa-" + li.dataset.step + "-g.webp", alt: th ? th.alt : "",
+      n: small ? small.textContent : "", t: small ? small.parentNode.textContent.replace(small.textContent, "").trim() : ""};
   });
+  const tiles = Array.from(document.querySelectorAll(".tile[data-lb-src]")).map(el => {
+    const th = el.querySelector("img");
+    return {el: el, src: el.dataset.lbSrc, alt: th ? th.alt : "", n: el.dataset.lbN, t: el.dataset.lbT};
+  });
+  let list = [], cur = 0;
+  const show = i => { cur = (i + list.length) % list.length; const it = list[cur];
+    img.src = it.src; img.alt = it.alt; n.textContent = it.n; t.textContent = it.t; };
+  const open = (l, i) => { list = l; show(i); if(typeof d.showModal === "function"){ if(!d.open) d.showModal(); } else d.setAttribute("open", ""); };
+  const close = () => { if(typeof d.close === "function") d.close(); else d.removeAttribute("open"); };
+  [steps, tiles].forEach(l => l.forEach((it, i) => {
+    it.el.addEventListener("click", () => open(l, i));
+    it.el.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); open(l, i); } });
+  }));
   d.querySelector(".lb-prev").addEventListener("click", () => show(cur - 1));
   d.querySelector(".lb-next").addEventListener("click", () => show(cur + 1));
   d.querySelectorAll("[data-lb-close]").forEach(b => b.addEventListener("click", close));
