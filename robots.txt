@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://speedwrap.vercel.app/sitemap.xml
+Sitemap: https://www.speedwrap.com.br/sitemap.xml

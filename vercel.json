@@ -1,7 +1,7 @@
 {
   "trailingSlash": true,
   "redirects": [
-    { "source": "/", "destination": "/diamond/", "permanent": false }
+    { "source": "/", "destination": "/diamond/", "permanent": true }
   ],
   "headers": [
     {
