@@ -21,7 +21,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:title" content="Speed Wrap Diamond | PPF para veículos premium" />
 <meta property="og:description" content="Proteção PPF com aplicação em ambiente controlado e garantia registrada. Agende uma avaliação técnica da pintura do seu veículo." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://speedwrap.vercel.app/diamond/assets/img/preview-link.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="BMW cinza com PPF no estúdio da Speed Wrap Diamond" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
@@ -865,6 +869,12 @@ html.pv-open{overflow:hidden}
     linear-gradient(65deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.8) 35%,rgba(10,10,11,.35) 58%,rgba(10,10,11,0) 75%),
     linear-gradient(180deg,rgba(10,10,11,.4) 0%,transparent 12%,transparent 45%,rgba(10,10,11,.6) 100%)}
 }
+/* fotos e video reais nas galerias */
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:scale .6s ease}
+.tile .cap{z-index:1}
+.tile.detail .cap{text-shadow:0 1px 8px rgba(0,0,0,.8)}
+@media (hover:hover){.tile:hover img{scale:1.05}}
+@media (prefers-reduced-motion:reduce){.tile:hover img{scale:1}}
 </style>
 </head>
 <body>
@@ -958,9 +968,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="vid-panel vid-reveal" style="--d:0s">
           <div class="vid-card vid-reveal" style="--ar:4/5;--d:.12s">
-            <div class="media-ph"></div>
-            <span class="vid-pill">Autorregeneração em ação</span>
-            <span class="vid-play" aria-hidden="true"></span>
+            <video class="lazy-vid" muted loop playsinline preload="none" poster="assets/img/aplicacao-poster.webp" aria-label="Aplicação de PPF com espátula em uma Toyota SW4"><source data-src="assets/video/aplicacao.mp4" type="video/mp4"></video>
+            <span class="vid-pill">Aplicação em ambiente controlado</span>
           </div>
         </div>
       </div>
@@ -1117,16 +1126,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="sub-title">Veículos entregues</div>
     <div class="gallery rv">
-      <div class="tile"><div class="media-ph"></div></div>
-      <div class="tile"><div class="media-ph"></div></div>
-      <div class="tile"><div class="media-ph"></div></div>
-      <div class="tile"><div class="media-ph"></div></div>
+      <div class="tile"><img src="assets/img/modelo-1.webp" width="800" height="600" alt="Ducati Streetfighter vermelha com PPF" loading="lazy" decoding="async"></div>
+      <div class="tile"><img src="assets/img/modelo-2.webp" width="800" height="600" alt="BMW Série 3 cinza com PPF" loading="lazy" decoding="async"></div>
+      <div class="tile"><img src="assets/img/modelo-3.webp" width="800" height="600" alt="Porsche 911 azul com PPF" loading="lazy" decoding="async"></div>
+      <div class="tile"><img src="assets/img/modelo-4.webp" width="800" height="600" alt="Ford F-150 branca com PPF" loading="lazy" decoding="async"></div>
     </div>
     <div class="sub-title">Acabamento de bordas</div>
     <div class="gallery rv" style="margin-bottom:16px">
-      <div class="tile detail wide"><div class="media-ph"></div><div class="cap">Borda envelopada</div></div>
-      <div class="tile detail"><div class="media-ph"></div><div class="cap">Detalhe de farol</div></div>
-      <div class="tile detail"><div class="media-ph"></div><div class="cap">Encaixe</div></div>
+      <div class="tile detail wide"><img src="assets/img/borda-envelopada.webp" width="1200" height="675" alt="PPF envolvendo a borda do para-lama" loading="lazy" decoding="async"><div class="cap">Borda envelopada</div></div>
+      <div class="tile detail"><img src="assets/img/detalhe-farol.webp" width="800" height="600" alt="Farol de BMW protegido com PPF" loading="lazy" decoding="async"><div class="cap">Detalhe de farol</div></div>
+      <div class="tile detail"><img src="assets/img/encaixe.webp" width="800" height="600" alt="Ajuste do filme PPF no farol com espátula" loading="lazy" decoding="async"><div class="cap">Encaixe</div></div>
     </div>
     <div class="sub-title">Avaliações da Speed no Google</div>
     <div class="testis five rv">
@@ -1679,6 +1688,18 @@ if(document.readyState!=="loading")off();else document.addEventListener("DOMCont
     }, {threshold:.6});
     io.observe(m);
   } else { play(); startLoop(); }
+})();
+</script>
+<script>
+/* video da secao "A solucao": baixa e toca so quando entra na tela */
+(function(){
+  var vids=document.querySelectorAll("video.lazy-vid"); if(!vids.length) return;
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function load(v){ if(v.dataset.ok) return; v.querySelectorAll("source[data-src]").forEach(function(s){s.src=s.dataset.src}); v.load(); v.dataset.ok=1; }
+  if(!("IntersectionObserver" in window)){ vids.forEach(function(v){load(v); if(!reduce) v.play().catch(function(){});}); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ var v=e.target;
+    if(e.isIntersecting){ load(v); if(!reduce) v.play().catch(function(){}); } else { v.pause(); } }); },{rootMargin:"200px 0px"});
+  vids.forEach(function(v){io.observe(v)});
 })();
 </script>
 </body>
