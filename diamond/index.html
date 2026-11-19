@@ -916,6 +916,40 @@ html:has(.okm[open]){overflow:hidden}
 .okm p{margin:0 0 26px;font-size:15px;line-height:1.6}
 .okm-btn{width:100%}
 @media (prefers-reduced-motion:reduce){.okm[open]{animation:none}.snd,.snd-hint,.hero-vid{transition:none}}
+/* ===== correcoes: dialogs centralizados (o reset global zera a margem) ===== */
+.okm,.lb{position:fixed;inset:0;margin:auto;height:fit-content;max-height:calc(100dvh - 24px)}
+.okm-x:focus:not(:focus-visible),.lb-x:focus:not(:focus-visible),.okm-btn:focus:not(:focus-visible){outline:none}
+.okm-x:focus-visible,.lb-x:focus-visible{outline:1px solid rgba(255,255,255,.6);outline-offset:-6px;border-radius:50%}
+/* hero mobile: gradiente mais forte quando o video esta tocando */
+@media (max-aspect-ratio:1/1){
+  .hero-vid{filter:brightness(.72)}
+  #hero.snd-live .hero-shade{background:
+    linear-gradient(65deg,rgba(10,10,11,.95) 0%,rgba(10,10,11,.88) 40%,rgba(10,10,11,.62) 62%,rgba(10,10,11,.32) 82%,rgba(10,10,11,.18) 100%),
+    linear-gradient(180deg,rgba(10,10,11,.5) 0%,rgba(10,10,11,.1) 14%,rgba(10,10,11,.15) 40%,rgba(10,10,11,.75) 70%,rgba(10,10,11,.92) 100%)}
+}
+/* ===== etapas clicaveis + visualizacao ampliada ===== */
+.steps-mini li[data-step]{cursor:pointer}
+.steps-mini li[data-step]:focus-visible{outline:1px solid rgba(255,255,255,.6);outline-offset:2px}
+.steps-mini .sp{position:relative}
+.sp-zoom{position:absolute;right:5px;bottom:5px;z-index:1;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:rgba(10,10,11,.6);color:#fff;opacity:.85;transition:opacity .3s ease}
+.sp-zoom svg{width:11px;height:11px}
+@media (min-width:900px){.sp-zoom{width:28px;height:28px;right:8px;bottom:8px;opacity:0}.sp-zoom svg{width:13px;height:13px}.steps-mini li:hover .sp-zoom,.steps-mini li:focus-visible .sp-zoom{opacity:1}}
+.lb{width:min(980px,calc(100vw - 24px));padding:0;border:1px solid var(--line-2);border-radius:12px;background:#080808;color:var(--soft);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.75)}
+.lb::backdrop{background:rgba(0,0,0,.82);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.lb[open]{animation:okmIn .3s ease both}
+.lb-top{display:flex;align-items:center;justify-content:space-between;padding:4px 4px 4px 16px}
+.lb-loc{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lb-x{width:44px;height:44px;display:grid;place-items:center;font-size:26px;line-height:1;color:var(--muted);background:none;border:0;cursor:pointer}
+.lb-x:hover{color:#fff}
+.lb-fig{margin:0}
+.lb-img{display:block;width:100%;height:auto;max-height:calc(100dvh - 170px);object-fit:contain;background:#000}
+.lb-fig figcaption{padding:14px 18px 18px;font-size:16px;line-height:1.35;color:var(--text)}
+.lb-n{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.lb-nav{position:absolute;top:50%;translate:0 -50%;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(10,10,11,.55);color:#fff;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lb-nav svg{width:20px;height:20px}
+.lb-prev{left:12px}.lb-next{right:12px}
+.lb-nav:hover{background:rgba(10,10,11,.85)}
+@media (prefers-reduced-motion:reduce){.lb[open]{animation:none}}
 </style>
 </head>
 <body>
@@ -1140,11 +1174,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="sub-title">Processo em 5 etapas</div>
     <ol class="steps-mini rv">
-      <li><span class="sp"><img src="assets/img/etapa-1.webp" width="600" height="450" alt="Inspeção da pintura sob luz" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"/></svg></span><span><small>Etapa 1</small>Avaliação técnica da pintura</span></li>
-      <li><span class="sp"><img src="assets/img/etapa-2.webp" width="600" height="450" alt="Lavagem técnica com espuma" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C12 7.97056 7.97056 12 3 12C7.97056 12 12 16.0294 12 21C12 16.0294 16.0294 12 21 12C16.0294 12 12 7.97056 12 3Z"/></svg></span><span><small>Etapa 2</small>Descontaminação e correção</span></li>
-      <li class="is-main"><span class="sp"><img src="assets/img/etapa-3.webp" width="600" height="450" alt="Filme PPF sendo aplicado sobre a pintura" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11.302 21.6149C11.5234 21.744 11.6341 21.8086 11.7903 21.8421C11.9116 21.8681 12.0884 21.8681 12.2097 21.8421C12.3659 21.8086 12.4766 21.744 12.698 21.6149C14.646 20.4784 20 16.9084 20 12V6.6C20 6.04207 20 5.7631 19.8926 5.55048C19.7974 5.36198 19.6487 5.21152 19.4613 5.11409C19.25 5.00419 18.9663 5.00084 18.3988 4.99413C15.4272 4.95899 13.7136 4.71361 12 3C10.2864 4.71361 8.57279 4.95899 5.6012 4.99413C5.03373 5.00084 4.74999 5.00419 4.53865 5.11409C4.35129 5.21152 4.20259 5.36198 4.10739 5.55048C4 5.7631 4 6.04207 4 6.6V12C4 16.9084 9.35396 20.4784 11.302 21.6149Z"/></svg></span><span><small>Etapa 3</small>Aplicação em ambiente controlado</span></li>
-      <li><span class="sp"><img src="assets/img/etapa-4.webp" width="600" height="450" alt="Ajuste do filme na borda da porta" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"/> <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H10M15 5H17C18.1046 5 19 5.89543 19 7V12"/> <path d="M13 19L15 21L20 16"/></svg></span><span><small>Etapa 4</small>Cura e inspeção final</span></li>
-      <li><span class="sp"><img src="assets/img/etapa-5.webp" width="600" height="450" alt="Ford F-150 finalizada no estúdio" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.9999" r="9"/> <path d="M15 10.0001L11 14.0001L9 12.0001"/></svg></span><span><small>Etapa 5</small>Entrega após aprovação final</span></li>
+      <li data-step="1" tabindex="0" role="button" aria-haspopup="dialog"><span class="sp"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/etapa-1.webp" width="600" height="450" alt="Inspeção da pintura sob luz" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"/></svg></span><span><small>Etapa 1</small>Avaliação técnica da pintura</span></li>
+      <li data-step="2" tabindex="0" role="button" aria-haspopup="dialog"><span class="sp"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/etapa-2.webp" width="600" height="450" alt="Lavagem técnica com espuma" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C12 7.97056 7.97056 12 3 12C7.97056 12 12 16.0294 12 21C12 16.0294 16.0294 12 21 12C16.0294 12 12 7.97056 12 3Z"/></svg></span><span><small>Etapa 2</small>Descontaminação e correção</span></li>
+      <li class="is-main" data-step="3" tabindex="0" role="button" aria-haspopup="dialog"><span class="sp"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/etapa-3.webp" width="600" height="450" alt="Filme PPF sendo aplicado sobre a pintura" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11.302 21.6149C11.5234 21.744 11.6341 21.8086 11.7903 21.8421C11.9116 21.8681 12.0884 21.8681 12.2097 21.8421C12.3659 21.8086 12.4766 21.744 12.698 21.6149C14.646 20.4784 20 16.9084 20 12V6.6C20 6.04207 20 5.7631 19.8926 5.55048C19.7974 5.36198 19.6487 5.21152 19.4613 5.11409C19.25 5.00419 18.9663 5.00084 18.3988 4.99413C15.4272 4.95899 13.7136 4.71361 12 3C10.2864 4.71361 8.57279 4.95899 5.6012 4.99413C5.03373 5.00084 4.74999 5.00419 4.53865 5.11409C4.35129 5.21152 4.20259 5.36198 4.10739 5.55048C4 5.7631 4 6.04207 4 6.6V12C4 16.9084 9.35396 20.4784 11.302 21.6149Z"/></svg></span><span><small>Etapa 3</small>Aplicação em ambiente controlado</span></li>
+      <li data-step="4" tabindex="0" role="button" aria-haspopup="dialog"><span class="sp"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/etapa-4.webp" width="600" height="450" alt="Ajuste do filme na borda da porta" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"/> <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H10M15 5H17C18.1046 5 19 5.89543 19 7V12"/> <path d="M13 19L15 21L20 16"/></svg></span><span><small>Etapa 4</small>Cura e inspeção final</span></li>
+      <li data-step="5" tabindex="0" role="button" aria-haspopup="dialog"><span class="sp"><span class="sp-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg></span><img src="assets/img/etapa-5.webp" width="600" height="450" alt="Ford F-150 finalizada no estúdio" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.9999" r="9"/> <path d="M15 10.0001L11 14.0001L9 12.0001"/></svg></span><span><small>Etapa 5</small>Entrega após aprovação final</span></li>
     </ol>
   </div>
 </section>
@@ -1459,12 +1493,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ============ POLÍTICA DE PRIVACIDADE ============ -->
+<dialog class="lb" id="step-lb" aria-labelledby="lb-cap">
+  <div class="lb-top"><span class="lb-loc">São Luís, MA.</span><button type="button" class="lb-x" data-lb-close aria-label="Fechar">&times;</button></div>
+  <figure class="lb-fig">
+    <img class="lb-img" src="" alt="" width="1080" height="810">
+    <figcaption id="lb-cap"><small class="lb-n"></small><span class="lb-t"></span></figcaption>
+  </figure>
+  <button type="button" class="lb-nav lb-prev" aria-label="Etapa anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button type="button" class="lb-nav lb-next" aria-label="Próxima etapa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+</dialog>
 <dialog class="okm" id="lead-ok" aria-labelledby="okm-title" aria-describedby="okm-text">
   <button type="button" class="okm-x" data-okm-close aria-label="Fechar">&times;</button>
   <div class="okm-ico" aria-hidden="true"><svg class="okm-gem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg><span class="okm-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
   <h2 id="okm-title">Sucesso!</h2>
   <p id="okm-text">Envie a mensagem que abrimos no WhatsApp e, em breve, um especialista entrará em contato.</p>
-  <button type="button" class="btn btn-primary okm-btn" data-okm-close>Entendido</button>
+  <button type="button" class="btn btn-primary okm-btn" data-okm-close autofocus>Entendido</button>
 </dialog>
 <dialog class="pv" id="privacidade" aria-labelledby="pv-title">
   <div class="pv-head">
@@ -1571,6 +1614,34 @@ safe(() => $$("[data-wa]").forEach(el => {
   el.rel = "noopener";
   el.addEventListener("click", () => track("whatsapp_click"));
 }));
+
+/* ===== ETAPAS: abre a foto ampliada com o nome da etapa ===== */
+safe(() => {
+  const d = document.getElementById("step-lb"), items = Array.from(document.querySelectorAll(".steps-mini li[data-step]"));
+  if(!d || !items.length) return;
+  const img = d.querySelector(".lb-img"), n = d.querySelector(".lb-n"), t = d.querySelector(".lb-t");
+  let cur = 0;
+  const show = i => {
+    cur = (i + items.length) % items.length; const li = items[cur], small = li.querySelector("small");
+    const th = li.querySelector(".sp img");
+    img.src = "assets/img/etapa-" + li.dataset.step + "-g.webp"; img.alt = th ? th.alt : "";
+    n.textContent = small ? small.textContent : ""; t.textContent = small ? small.parentNode.textContent.replace(small.textContent, "").trim() : "";
+  };
+  const open = i => { show(i); if(typeof d.showModal === "function"){ if(!d.open) d.showModal(); } else d.setAttribute("open", ""); };
+  const close = () => { if(typeof d.close === "function") d.close(); else d.removeAttribute("open"); };
+  items.forEach((li, i) => {
+    li.addEventListener("click", () => open(i));
+    li.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); open(i); } });
+  });
+  d.querySelector(".lb-prev").addEventListener("click", () => show(cur - 1));
+  d.querySelector(".lb-next").addEventListener("click", () => show(cur + 1));
+  d.querySelectorAll("[data-lb-close]").forEach(b => b.addEventListener("click", close));
+  d.addEventListener("click", e => { if(e.target === d) close(); });
+  d.addEventListener("keydown", e => { if(e.key === "ArrowLeft") show(cur - 1); if(e.key === "ArrowRight") show(cur + 1); });
+  let x0 = null; /* arrastar para os lados no celular */
+  d.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive:true});
+  d.addEventListener("touchend", e => { if(x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if(Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+});
 
 /* ===== MODAL DE SUCESSO DO FORMULÁRIO ===== */
 function showOk(){
