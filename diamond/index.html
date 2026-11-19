@@ -674,16 +674,39 @@ h1,h2,.btn,.logo,.media-ph,.trust-label,.brands,.film,.cap,.extras h3,.sub-title
 .map-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.9) contrast(.9)}
 .foot-addr .map-link{margin-top:4px}
 
-/* ===== FAIXA LEMA: brilho animado (somente CSS, leve) ===== */
-.motto p{background:linear-gradient(100deg,rgba(245,245,245,.72) 0%,rgba(245,245,245,.72) 42%,#fff 50%,rgba(245,245,245,.72) 58%,rgba(245,245,245,.72) 100%) 100% 0/250% 100% no-repeat;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+/* ===== FAIXA LEMA: entrada animada (1a vez) + brilho ao passar o mouse/tocar no diamante ou na frase ===== */
+/* o gradiente com recorte de texto fica so no texto comum (.mt); antes ficava no <p> e duplicava "diamante." quando a palavra animava */
+.motto .mt{background:linear-gradient(100deg,rgba(245,245,245,.72) 0%,rgba(245,245,245,.72) 42%,#fff 50%,rgba(245,245,245,.72) 58%,rgba(245,245,245,.72) 100%) 100% 0/250% 100% no-repeat;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .motto .hl-t{background:linear-gradient(100deg,transparent 40%,#fff 50%,transparent 60%) 100% 0/250% 100% no-repeat,linear-gradient(90deg,#b4b4b4 0%,#e9e9e9 55%,#fff 100%);-webkit-background-clip:text;background-clip:text}
-.motto.in p{animation:mottoSweep 5.5s ease-in-out .4s infinite}
-.motto.in .hl-t{animation:mottoGleam 5.5s ease-in-out .4s infinite}
-.motto.in .motto-ico{animation:mottoGlint 5.5s ease-in-out .4s infinite}
-@keyframes mottoSweep{0%{background-position:100% 0}45%,100%{background-position:0 0}}
-@keyframes mottoGleam{0%,30%{background-position:100% 0,0 0}58%,100%{background-position:0 0,0 0}}
-@keyframes mottoGlint{0%,100%{filter:none;transform:scale(1)}5%{filter:brightness(1.7) drop-shadow(0 0 7px rgba(255,255,255,.6));transform:scale(1.08)}14%{filter:none;transform:scale(1)}}
-@media (prefers-reduced-motion:reduce){.motto.in p,.motto.in .hl-t,.motto.in .motto-ico{animation:none}}
+.motto .hl{display:inline-block;transform-origin:50% 70%;background-repeat:no-repeat;background-size:100% 100%}
+.motto-ico,.motto p{cursor:default}
+/* ENTRADA: diamante com brilho forte; frase revelada por faixa de luz; "diamante." surge com zoom, clarao e reflexo */
+.motto.play .motto-ico{animation:mottoFlare 1.7s cubic-bezier(.22,1,.36,1) both}
+.motto.play p{-webkit-mask:linear-gradient(90deg,#000 0%,#000 50%,transparent 59%,transparent 100%) 100% 0/250% 100% no-repeat;mask:linear-gradient(90deg,#000 0%,#000 50%,transparent 59%,transparent 100%) 100% 0/250% 100% no-repeat;animation:mottoReveal 1.1s cubic-bezier(.65,0,.35,1) .15s both}
+.motto.play .mt{animation:mottoSweepOnce 1.1s cubic-bezier(.65,0,.35,1) .15s both}
+.motto.play .hl{animation:mottoGem .85s cubic-bezier(.22,1,.36,1) .85s both,mottoBar .7s ease-out 1s both}
+.motto.play .hl-t{animation:mottoGleamOnce 1s ease-in-out 1.35s both}
+/* REPETICAO (hover/toque): so brilho. Frase: faixa de luz passa; "diamante.": reflexo + pulso de luz; diamante: brilho forte */
+.motto.shine .motto-ico{animation:mottoFlare 1.7s cubic-bezier(.22,1,.36,1) both}
+.motto.shine .mt{animation:mottoSweepOnce 1s cubic-bezier(.65,0,.35,1) both}
+.motto.shine .hl{animation:mottoGlow 1.1s ease-out .55s both}
+.motto.shine .hl-t{animation:mottoGleamOnce .9s ease-in-out .6s both}
+@keyframes mottoFlare{
+  0%{opacity:.35;transform:scale(.82);filter:brightness(1) drop-shadow(0 0 0 rgba(255,255,255,0))}
+  18%{opacity:1;transform:scale(1.28);filter:brightness(2.6) drop-shadow(0 0 14px rgba(255,255,255,.95))}
+  36%{opacity:.95;transform:scale(1);filter:brightness(1.15) drop-shadow(0 0 3px rgba(255,255,255,.35))}
+  62%{opacity:1;transform:scale(1.12);filter:brightness(2.1) drop-shadow(0 0 10px rgba(255,255,255,.8))}
+  82%,100%{opacity:.9;transform:scale(1);filter:brightness(1) drop-shadow(0 0 0 rgba(255,255,255,0))}}
+@keyframes mottoReveal{0%{-webkit-mask-position:100% 0;mask-position:100% 0;filter:blur(3px)}70%{filter:blur(0)}100%{-webkit-mask-position:0 0;mask-position:0 0;filter:blur(0)}}
+@keyframes mottoSweepOnce{from{background-position:100% 0}to{background-position:0 0}}
+@keyframes mottoGem{
+  0%{opacity:0;transform:translateY(.3em) scale(.86);filter:blur(6px) brightness(1) drop-shadow(0 0 0 rgba(255,255,255,0))}
+  55%{opacity:1;transform:translateY(0) scale(1.07);filter:blur(0) brightness(1.9) drop-shadow(0 0 10px rgba(255,255,255,.6))}
+  100%{opacity:1;transform:none;filter:blur(0) brightness(1) drop-shadow(0 0 0 rgba(255,255,255,0))}}
+@keyframes mottoGlow{0%,100%{filter:brightness(1) drop-shadow(0 0 0 rgba(255,255,255,0))}40%{filter:brightness(1.6) drop-shadow(0 0 9px rgba(255,255,255,.55))}}
+@keyframes mottoBar{0%{background-size:0% 100%;border-right-color:transparent}60%{border-right-color:#fff}100%{background-size:100% 100%;border-right-color:rgba(255,255,255,.75)}}
+@keyframes mottoGleamOnce{from{background-position:100% 0,0 0}to{background-position:0 0,0 0}}
+@media (prefers-reduced-motion:reduce){.motto.play *,.motto.shine *,.motto.play p{animation:none!important}.motto.play p{-webkit-mask:none;mask:none}}
 
 /* ===== INSTAGRAM + USERNAME (rodape) ===== */
 .foot-grid .foot-social a{display:inline-flex;align-items:center;gap:7px;width:auto;height:auto;min-height:44px;padding:0;font-size:14px;color:var(--soft);text-decoration:none}
@@ -876,7 +899,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div class="motto rv">
       <svg class="motto-ico" aria-hidden="true" focusable="false"><use href="#i-diamond"/></svg>
-      <p>Seu veículo lapidado como um <span class="hl"><span class="hl-t">diamante.</span></span></p>
+      <p><span class="mt">Seu veículo lapidado como um</span> <span class="hl"><span class="hl-t">diamante.</span></span></p>
     </div>
   </div>
 </section>
@@ -1608,6 +1631,28 @@ if(document.readyState!=="loading")off();else document.addEventListener("DOMCont
   });
   if(location.hash === "#privacidade") openPolicy();
   addEventListener("hashchange", function(){ if(location.hash === "#privacidade") openPolicy(); });
+})();
+</script>
+<script>
+/* ===== FAIXA LEMA: toca a entrada ao aparecer e repete no hover/toque do diamante ou da frase ===== */
+(function(){
+  var m = document.querySelector(".motto"); if(!m) return;
+  var busy = false, t;
+  function play(){
+    if(busy) return; busy = true;
+    m.classList.add("play");
+    clearTimeout(t); t = setTimeout(function(){ busy = false; }, 2400);
+  }
+  function shine(){
+    if(busy) return; busy = true;
+    m.classList.remove("play", "shine"); void m.offsetWidth; m.classList.add("shine");
+    clearTimeout(t); t = setTimeout(function(){ busy = false; }, 1700);
+  }
+  [m.querySelector(".motto-ico"), m.querySelector("p")].forEach(function(el){ if(el) el.addEventListener("pointerenter", shine); });
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(es){ if(es[0].isIntersecting){ io.disconnect(); play(); } }, {threshold:.6});
+    io.observe(m);
+  } else play();
 })();
 </script>
 </body>
