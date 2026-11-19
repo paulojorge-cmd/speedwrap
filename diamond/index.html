@@ -1649,10 +1649,18 @@ if(document.readyState!=="loading")off();else document.addEventListener("DOMCont
     clearTimeout(t); t = setTimeout(function(){ busy = false; }, 1700);
   }
   [m.querySelector(".motto-ico"), m.querySelector("p")].forEach(function(el){ if(el) el.addEventListener("pointerenter", shine); });
+  /* mobile (sem mouse): repete o brilho a cada 5 s enquanto a faixa esta visivel */
+  var touch = matchMedia("(hover: none)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var seen = false, loop = null;
+  function startLoop(){ if(touch && !loop) loop = setInterval(shine, 5000); }
+  function stopLoop(){ clearInterval(loop); loop = null; }
   if("IntersectionObserver" in window){
-    var io = new IntersectionObserver(function(es){ if(es[0].isIntersecting){ io.disconnect(); play(); } }, {threshold:.6});
+    var io = new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){ if(!seen){ seen = true; play(); } startLoop(); }
+      else stopLoop();
+    }, {threshold:.6});
     io.observe(m);
-  } else play();
+  } else { play(); startLoop(); }
 })();
 </script>
 </body>
