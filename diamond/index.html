@@ -875,6 +875,47 @@ html.pv-open{overflow:hidden}
 .tile.detail .cap{text-shadow:0 1px 8px rgba(0,0,0,.8)}
 @media (hover:hover){.tile:hover img{scale:1.05}}
 @media (prefers-reduced-motion:reduce){.tile:hover img{scale:1}}
+/* ===== videos com som ===== */
+.vid-narrow{max-width:460px;margin-inline:auto}
+.snd-box{position:relative}
+.snd{position:absolute;right:14px;bottom:14px;z-index:4;width:40px;height:40px;display:grid;place-items:center;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(10,10,11,.55);color:#fff;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .35s ease,background-color .25s ease;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.snd svg{width:19px;height:19px}
+.snd-live .snd{opacity:1;pointer-events:auto}
+.snd:hover{background:rgba(10,10,11,.8)}
+.snd:focus-visible,.snd-hint:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.snd-hint{position:absolute;right:62px;bottom:22px;z-index:4;padding:3px 10px;border:0;border-radius:999px;background:rgba(10,10,11,.6);color:rgba(255,255,255,.9);font:500 11px/1.6 var(--f-body);letter-spacing:.02em;white-space:nowrap;cursor:pointer;opacity:0;translate:6px 0;pointer-events:none;transition:opacity .4s ease,translate .4s ease;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.snd-ask .snd-hint{opacity:1;translate:0 0;pointer-events:auto}
+/* hero: video so no celular, na mesma area da foto */
+#hero{position:relative}
+.hero-vid{display:none}
+@media (max-aspect-ratio:1/1){
+  .hero-vid{display:block;position:absolute;inset:0 0 auto 0;width:100%;height:56%;object-fit:cover;opacity:0;transition:opacity .8s ease;filter:brightness(.85);-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+  .hero-vid.on{opacity:1}
+  #hero > .snd{top:84px;bottom:auto;right:16px}
+  #hero > .snd-hint{top:92px;bottom:auto;right:64px}
+}
+@media (min-aspect-ratio:1/1){#hero > .snd,#hero > .snd-hint{display:none}}
+/* ===== etapas com foto ===== */
+.steps-mini .sp{flex:none;width:76px;height:76px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+.steps-mini .sp img{width:100%;height:100%;object-fit:cover;display:block;transition:scale .6s ease}
+@media (min-width:900px){.steps-mini .sp{width:100%;height:auto;aspect-ratio:4/3;margin-bottom:4px}}
+@media (hover:hover) and (pointer:fine){.steps-mini li:hover .sp img{scale:1.05}}
+/* ===== modal de sucesso do formulario ===== */
+html:has(.okm[open]){overflow:hidden}
+.okm{width:min(420px,calc(100vw - 32px));padding:44px 28px 28px;border:1px solid var(--line-2);border-radius:14px;background:linear-gradient(180deg,#151515,#090909);color:var(--soft);text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.okm::backdrop{background:rgba(0,0,0,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.okm[open]{animation:okmIn .35s ease both}
+@keyframes okmIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.okm-x{position:absolute;top:8px;right:8px;width:44px;height:44px;display:grid;place-items:center;font-size:26px;line-height:1;color:var(--muted);background:none;border:0;cursor:pointer}
+.okm-x:hover{color:#fff}
+.okm-ico{position:relative;width:84px;height:84px;margin:0 auto 22px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(180deg,#ffffff 0%,#dcdcdc 50%,#a8a8a8 100%);color:#050505;box-shadow:0 0 0 6px rgba(255,255,255,.06),0 14px 34px rgba(255,255,255,.12)}
+.okm-gem{width:38px;height:38px;stroke-width:1.5}
+.okm-check{position:absolute;right:-2px;bottom:-2px;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#050505;color:#fff;border:2px solid #d3d3d3}
+.okm-check svg{width:15px;height:15px}
+.okm h2{margin:0 0 10px;font-size:24px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
+.okm p{margin:0 0 26px;font-size:15px;line-height:1.6}
+.okm-btn{width:100%}
+@media (prefers-reduced-motion:reduce){.okm[open]{animation:none}.snd,.snd-hint,.hero-vid{transition:none}}
 </style>
 </head>
 <body>
@@ -904,6 +945,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <source type="image/avif" srcset="assets/img/hero-desktop-1280.avif 1280w, assets/img/hero-desktop-1920.avif 1920w" sizes="100vw">
       <img src="assets/img/hero-desktop-1920.webp" srcset="assets/img/hero-desktop-1280.webp 1280w, assets/img/hero-desktop-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="BMW Série 3 cinza com PPF no estúdio da Speed Wrap Diamond" fetchpriority="high" decoding="async">
     </picture>
+    <video class="hero-vid" data-snd muted loop playsinline preload="none" aria-label="Porsche 911 azul com PPF no estúdio da Speed Wrap Diamond"><source data-src="assets/video/hero-mobile.mp4" type="video/mp4"></video>
   </div>
   <div class="hero-shade"></div>
   <div class="container">
@@ -968,7 +1010,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="vid-panel vid-reveal" style="--d:0s">
           <div class="vid-card vid-reveal" style="--ar:4/5;--d:.12s">
-            <video class="lazy-vid" muted loop playsinline preload="none" poster="assets/img/aplicacao-poster.webp" aria-label="Aplicação de PPF com espátula em uma Toyota SW4"><source data-src="assets/video/aplicacao.mp4" type="video/mp4"></video>
+            <video class="lazy-vid" data-snd muted loop playsinline preload="none" poster="assets/img/aplicacao-poster.webp?v=2" aria-label="Aplicação de PPF com espátula sobre a pintura azul de um Porsche 911"><source data-src="assets/video/aplicacao.mp4?v=2" type="video/mp4"></video>
             <span class="vid-pill">Aplicação em ambiente controlado</span>
           </div>
         </div>
@@ -1098,11 +1140,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="sub-title">Processo em 5 etapas</div>
     <ol class="steps-mini rv">
-      <li><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"/></svg></span><span><small>Etapa 1</small>Avaliação técnica da pintura</span></li>
-      <li><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C12 7.97056 7.97056 12 3 12C7.97056 12 12 16.0294 12 21C12 16.0294 16.0294 12 21 12C16.0294 12 12 7.97056 12 3Z"/></svg></span><span><small>Etapa 2</small>Descontaminação e correção</span></li>
-      <li class="is-main"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11.302 21.6149C11.5234 21.744 11.6341 21.8086 11.7903 21.8421C11.9116 21.8681 12.0884 21.8681 12.2097 21.8421C12.3659 21.8086 12.4766 21.744 12.698 21.6149C14.646 20.4784 20 16.9084 20 12V6.6C20 6.04207 20 5.7631 19.8926 5.55048C19.7974 5.36198 19.6487 5.21152 19.4613 5.11409C19.25 5.00419 18.9663 5.00084 18.3988 4.99413C15.4272 4.95899 13.7136 4.71361 12 3C10.2864 4.71361 8.57279 4.95899 5.6012 4.99413C5.03373 5.00084 4.74999 5.00419 4.53865 5.11409C4.35129 5.21152 4.20259 5.36198 4.10739 5.55048C4 5.7631 4 6.04207 4 6.6V12C4 16.9084 9.35396 20.4784 11.302 21.6149Z"/></svg></span><span><small>Etapa 3</small>Aplicação em ambiente controlado</span></li>
-      <li><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"/> <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H10M15 5H17C18.1046 5 19 5.89543 19 7V12"/> <path d="M13 19L15 21L20 16"/></svg></span><span><small>Etapa 4</small>Cura e inspeção final</span></li>
-      <li><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.9999" r="9"/> <path d="M15 10.0001L11 14.0001L9 12.0001"/></svg></span><span><small>Etapa 5</small>Entrega após aprovação final</span></li>
+      <li><span class="sp"><img src="assets/img/etapa-1.webp" width="600" height="450" alt="Inspeção da pintura sob luz" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"/></svg></span><span><small>Etapa 1</small>Avaliação técnica da pintura</span></li>
+      <li><span class="sp"><img src="assets/img/etapa-2.webp" width="600" height="450" alt="Lavagem técnica com espuma" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C12 7.97056 7.97056 12 3 12C7.97056 12 12 16.0294 12 21C12 16.0294 16.0294 12 21 12C16.0294 12 12 7.97056 12 3Z"/></svg></span><span><small>Etapa 2</small>Descontaminação e correção</span></li>
+      <li class="is-main"><span class="sp"><img src="assets/img/etapa-3.webp" width="600" height="450" alt="Filme PPF sendo aplicado sobre a pintura" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11.302 21.6149C11.5234 21.744 11.6341 21.8086 11.7903 21.8421C11.9116 21.8681 12.0884 21.8681 12.2097 21.8421C12.3659 21.8086 12.4766 21.744 12.698 21.6149C14.646 20.4784 20 16.9084 20 12V6.6C20 6.04207 20 5.7631 19.8926 5.55048C19.7974 5.36198 19.6487 5.21152 19.4613 5.11409C19.25 5.00419 18.9663 5.00084 18.3988 4.99413C15.4272 4.95899 13.7136 4.71361 12 3C10.2864 4.71361 8.57279 4.95899 5.6012 4.99413C5.03373 5.00084 4.74999 5.00419 4.53865 5.11409C4.35129 5.21152 4.20259 5.36198 4.10739 5.55048C4 5.7631 4 6.04207 4 6.6V12C4 16.9084 9.35396 20.4784 11.302 21.6149Z"/></svg></span><span><small>Etapa 3</small>Aplicação em ambiente controlado</span></li>
+      <li><span class="sp"><img src="assets/img/etapa-4.webp" width="600" height="450" alt="Ajuste do filme na borda da porta" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"/> <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H10M15 5H17C18.1046 5 19 5.89543 19 7V12"/> <path d="M13 19L15 21L20 16"/></svg></span><span><small>Etapa 4</small>Cura e inspeção final</span></li>
+      <li><span class="sp"><img src="assets/img/etapa-5.webp" width="600" height="450" alt="Ford F-150 finalizada no estúdio" loading="lazy" decoding="async"></span><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11.9999" r="9"/> <path d="M15 10.0001L11 14.0001L9 12.0001"/></svg></span><span><small>Etapa 5</small>Entrega após aprovação final</span></li>
     </ol>
   </div>
 </section>
@@ -1181,11 +1223,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </article>
     </div>
 
-    <div class="vid-panel vid-reveal" style="--d:0s;margin-top:16px">
-      <div class="vid-card vid-reveal" style="--ar:16/9;--d:.12s">
-        <div class="media-ph"></div>
-        <span class="vid-pill">Feedback de cliente</span>
-        <span class="vid-play" aria-hidden="true"></span>
+    <div class="vid-panel vid-reveal vid-narrow" style="--d:0s;margin-top:16px">
+      <div class="vid-card vid-reveal" style="--ar:4/5;--d:.12s">
+        <video class="lazy-vid" data-snd muted loop playsinline preload="none" poster="assets/img/entrega-cliente-poster.webp" aria-label="Entrega de um Changan Uni-T com PPF ao cliente"><source data-src="assets/video/entrega-cliente.mp4" type="video/mp4"></video>
+        <span class="vid-pill">Entrega ao cliente</span>
       </div>
     </div>
     <div class="sec-cta rv">
@@ -1418,6 +1459,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ============ POLÍTICA DE PRIVACIDADE ============ -->
+<dialog class="okm" id="lead-ok" aria-labelledby="okm-title" aria-describedby="okm-text">
+  <button type="button" class="okm-x" data-okm-close aria-label="Fechar">&times;</button>
+  <div class="okm-ico" aria-hidden="true"><svg class="okm-gem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg><span class="okm-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div>
+  <h2 id="okm-title">Sucesso!</h2>
+  <p id="okm-text">Envie a mensagem que abrimos no WhatsApp e, em breve, um especialista entrará em contato.</p>
+  <button type="button" class="btn btn-primary okm-btn" data-okm-close>Entendido</button>
+</dialog>
 <dialog class="pv" id="privacidade" aria-labelledby="pv-title">
   <div class="pv-head">
     <h2 id="pv-title">Política de Privacidade</h2>
@@ -1524,6 +1572,18 @@ safe(() => $$("[data-wa]").forEach(el => {
   el.addEventListener("click", () => track("whatsapp_click"));
 }));
 
+/* ===== MODAL DE SUCESSO DO FORMULÁRIO ===== */
+function showOk(){
+  const d = document.getElementById("lead-ok"); if(!d) return;
+  if(typeof d.showModal === "function"){ if(!d.open) d.showModal(); } else d.setAttribute("open", "");
+}
+safe(() => {
+  const d = document.getElementById("lead-ok");
+  const close = () => { if(typeof d.close === "function") d.close(); else d.removeAttribute("open"); };
+  d.querySelectorAll("[data-okm-close]").forEach(b => b.addEventListener("click", close));
+  d.addEventListener("click", e => { if(e.target === d) close(); }); /* clique fora fecha */
+});
+
 /* ===== FORMULÁRIO QUALIFICADOR ===== */
 safe(() => {
   const form = document.getElementById("lead-form"), msgBox = document.getElementById("form-msg");
@@ -1547,7 +1607,7 @@ safe(() => {
     say("Abrindo o WhatsApp...", true);
     setTimeout(() => { btn.disabled = false; say(""); }, 4000);
     const win = window.open(url, "_blank");
-    if(win) win.opener = null; else location.href = url; /* pop-up bloqueado: abre na própria aba */
+    if(win){ win.opener = null; showOk(); form.reset(); } else location.href = url; /* pop-up bloqueado: abre na própria aba */
   });
 });
 
@@ -1691,15 +1751,62 @@ if(document.readyState!=="loading")off();else document.addEventListener("DOMCont
 })();
 </script>
 <script>
-/* video da secao "A solucao": baixa e toca so quando entra na tela */
+/* VIDEOS: carregam e tocam so quando entram na tela, comecam sem som e
+   ganham um botao de som + aviso discreto que some quando o som e ativado */
 (function(){
-  var vids=document.querySelectorAll("video.lazy-vid"); if(!vids.length) return;
-  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function load(v){ if(v.dataset.ok) return; v.querySelectorAll("source[data-src]").forEach(function(s){s.src=s.dataset.src}); v.load(); v.dataset.ok=1; }
-  if(!("IntersectionObserver" in window)){ vids.forEach(function(v){load(v); if(!reduce) v.play().catch(function(){});}); return; }
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ var v=e.target;
-    if(e.isIntersecting){ load(v); if(!reduce) v.play().catch(function(){}); } else { v.pause(); } }); },{rootMargin:"200px 0px"});
-  vids.forEach(function(v){io.observe(v)});
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var saveData = navigator.connection && navigator.connection.saveData;
+  var ICON_OFF = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></svg>';
+  var ICON_ON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>';
+  var all = [];
+  function load(v){ if(v.dataset.ok) return; v.querySelectorAll("source[data-src]").forEach(function(s){ s.src = s.dataset.src; }); v.load(); v.dataset.ok = 1; }
+  function play(v){ if(!reduce) { var p = v.play(); if(p && p.catch) p.catch(function(){}); } }
+  function setSound(v, on){
+    v.muted = !on; var h = v._snd; if(!h) return;
+    h.btn.innerHTML = on ? ICON_ON : ICON_OFF;
+    h.btn.setAttribute("aria-label", on ? "Desativar som" : "Ativar som");
+    h.btn.setAttribute("aria-pressed", on ? "true" : "false");
+    if(on){
+      h.box.classList.remove("snd-ask"); h.box.classList.add("snd-done");
+      all.forEach(function(o){ if(o !== v && !o.muted) setSound(o, false); });
+      if(v.paused) play(v);
+    }
+  }
+  function addSound(v, box){
+    var btn = document.createElement("button"); btn.type = "button"; btn.className = "snd";
+    var hint = document.createElement("button"); hint.type = "button"; hint.className = "snd-hint"; hint.tabIndex = -1;
+    hint.textContent = "Toque para ativar o som";
+    box.appendChild(hint); box.appendChild(btn); box.classList.add("snd-box");
+    v._snd = {btn: btn, box: box}; setSound(v, false);
+    btn.addEventListener("click", function(){ setSound(v, v.muted); });
+    hint.addEventListener("click", function(){ setSound(v, true); });
+    v.addEventListener("playing", function(){ if(v.muted && !box.classList.contains("snd-done")) box.classList.add("snd-ask"); box.classList.add("snd-live"); });
+    all.push(v);
+  }
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function(es){
+    es.forEach(function(e){ var v = e.target._vid || e.target;
+      if(e.isIntersecting){ load(v); play(v); } else if(!v.paused){ v.pause(); } });
+  }, {rootMargin: "150px 0px"}) : null;
+
+  /* videos das secoes */
+  document.querySelectorAll("video.lazy-vid").forEach(function(v){
+    if(v.hasAttribute("data-snd")) addSound(v, v.parentNode);
+    if(io) io.observe(v); else { load(v); play(v); }
+  });
+
+  /* video da hero: so em telas em retrato (celular), depois que a pagina carregou */
+  var hv = document.querySelector("video.hero-vid");
+  if(hv && !reduce && !saveData && window.matchMedia && matchMedia("(max-aspect-ratio: 1/1)").matches){
+    var hero = document.getElementById("hero");
+    var start = function(){
+      load(hv);
+      hv.addEventListener("playing", function(){ hv.classList.add("on"); }, {once: true});
+      addSound(hv, hero);
+      if(io){ hero._vid = hv; io.observe(hero); } else play(hv);
+    };
+    if(document.readyState === "complete") setTimeout(start, 800);
+    else addEventListener("load", function(){ setTimeout(start, 800); });
+  }
 })();
 </script>
 </body>
