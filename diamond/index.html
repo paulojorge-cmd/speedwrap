@@ -933,6 +933,10 @@ a.seal:hover .seal-ico::after,a.seal:focus-visible .seal-ico::after{transform:tr
 @media (prefers-reduced-motion:reduce){.seal-ico,.seal-ico::before{animation:none}a.seal:hover .seal-ico::after{transition:none}}
 /* icone de localizacao da hero */
 .hero-loc svg{width:12px;height:12px}
+/* faixa final: "diamante" em destaque com brilho reflexivo passando */
+.cta-gem{position:relative;display:inline-block;font-weight:700;padding:0 .12em;margin-left:.02em;border-right:max(2px,.06em) solid #050505;background:linear-gradient(105deg,#050505 0%,#050505 42%,#ffffff 50%,#050505 58%,#050505 100%) 100% 0/260% 100% no-repeat,linear-gradient(90deg,rgba(5,5,5,0) 0%,rgba(5,5,5,.06) 45%,rgba(5,5,5,.14) 100%);-webkit-background-clip:text,border-box;background-clip:text,border-box;-webkit-text-fill-color:transparent;color:#050505;animation:ctaGem 4.5s ease-in-out 1s infinite}
+@keyframes ctaGem{0%{background-position:100% 0,0 0}35%,100%{background-position:0 0,0 0}}
+@media (prefers-reduced-motion:reduce){.cta-gem{animation:none;background:none;-webkit-text-fill-color:#050505}}
 </style>
 </head>
 <body>
@@ -1414,7 +1418,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <div>
       <p class="cta-band-label">Speed Wrap Diamond</p>
-      <p class="cta-band-title">A pintura original é patrimônio. Proteja como tal.</p>
+      <p class="cta-band-title">Seu veículo lapidado como um <span class="cta-gem">diamante</span></p>
     </div>
     <a href="#" class="btn btn-ink" data-wa>Agendar avaliação<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
